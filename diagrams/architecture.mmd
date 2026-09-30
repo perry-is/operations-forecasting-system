@@ -1,0 +1,15 @@
+flowchart TD
+    I[Synthetic inventory snapshot] --> V[Validation and normalization]
+    U[Synthetic usage history] --> V
+    P[Synthetic PO records] --> V
+    S[Scenario assumptions] --> F
+    V --> F[Transparent demand forecast]
+    F --> X[Dated inventory projection]
+    X --> L[Lead-time analysis and risk detection]
+    L --> R[Explainable recommendation]
+    R --> Q[Human review flags]
+    R --> C[Scenario comparison]
+    Q --> C
+    C --> O[Planning report and recommendation JSON]
+    O --> A[Audit JSONL]
+    A --> H[Human decision outside the prototype]

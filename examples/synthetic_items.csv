@@ -1,0 +1,15 @@
+item_id,description,category,current_on_hand,allocated_quantity,minimum_stock,target_stock,supplier_lead_time_days,unit_cost,criticality,last_updated
+PART-001,Fictional steady coupling,components,120,10,10,80,14,2.50,normal,2026-06-30
+PART-002,Fictional rising-use sleeve,components,95,5,15,110,35,3.00,normal,2026-06-30
+PART-003,Fictional long-lead housing,components,100,0,20,180,40,7.50,high,2026-06-30
+PART-004,Fictional inbound-covered spacer,components,25,0,10,80,30,1.25,normal,2026-06-30
+PART-005,Fictional overdue-supply insert,components,10,0,5,50,21,4.00,high,2026-06-30
+PART-006,Fictional occasional-use cap,components,15,0,2,30,14,0.80,low,2026-06-30
+PART-007,Fictional spike-demand clip,components,60,0,10,100,21,1.50,normal,2026-06-30
+PART-008,Fictional declining-use bracket,components,500,0,10,60,14,6.00,low,2026-06-30
+PART-009,Fictional new-item bushing,components,20,0,5,50,14,2.00,normal,2026-06-30
+PART-010,Fictional critical fixture,components,25,0,10,80,14,9.00,critical,2026-06-30
+PART-011,Fictional demand-sensitive ring,components,52,0,10,60,30,2.25,normal,2026-06-30
+PART-012,Fictional lead-sensitive liner,components,60,0,10,70,35,3.50,normal,2026-06-30
+KIT-001,Fictional dormant assembly kit,kits,90,0,0,30,14,12.00,low,2026-06-30
+KIT-002,Fictional incomplete-count kit,kits,8,12,5,40,,,high,2026-04-01

@@ -1,0 +1,8 @@
+po_reference,item_id,quantity,expected_receipt_date,status
+PO-SYN-001,PART-004,60,2026-07-10,confirmed
+PO-SYN-002,PART-005,40,2026-06-25,confirmed
+PO-SYN-003,PART-001,999,2026-07-08,cancelled
+PO-SYN-004,PART-004,60,2026-06-10,received
+PO-SYN-005,KIT-002,30,,confirmed
+PO-SYN-006,PART-008,100,2026-07-15,unconfirmed
+PO-SYN-007,KIT-001,30,2026-07-12,confirmed

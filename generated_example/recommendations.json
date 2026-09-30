@@ -1,0 +1,5229 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "as_of": "2026-06-30",
+  "scenario_names": [
+    "BASELINE",
+    "DEMAND +20%",
+    "LEAD TIME +14 DAYS",
+    "INBOUND PO DELAYED"
+  ],
+  "recommendations": [
+    {
+      "item_id": "PART-001",
+      "description": "Fictional steady coupling",
+      "scenario": "BASELINE",
+      "observed_facts": {
+        "item_id": "PART-001",
+        "description": "Fictional steady coupling",
+        "category": "components",
+        "current_on_hand": "120",
+        "allocated_quantity": "10",
+        "minimum_stock": "10",
+        "target_stock": "80",
+        "supplier_lead_time_days": 14,
+        "unit_cost": "2.50",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "91",
+        "baseline_daily_usage": "1.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "1.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "90.000000"
+      },
+      "projection": {
+        "current_on_hand": "120",
+        "allocated_quantity": "10",
+        "current_available": "110",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "20.000000",
+        "projected_stock_at_lead_time": "96.000000",
+        "minimum_projected_available": "20.000000",
+        "stockout_date": null,
+        "below_minimum_date": null,
+        "below_safety_date": null
+      },
+      "inbound_evaluations": [
+        {
+          "po_reference": "PO-SYN-003",
+          "quantity": "999",
+          "status": "cancelled",
+          "observed_receipt_date": "2026-07-08",
+          "effective_receipt_date": "2026-07-08",
+          "eligible": false,
+          "exclusion_reason": "status_cancelled"
+        }
+      ],
+      "recommendation": {
+        "action": "NO ACTION",
+        "candidate_action": "NO ACTION",
+        "suggested_quantity": 0,
+        "candidate_quantity": 0,
+        "reason": "The dated projection stays above safety stock and below the excess threshold.",
+        "quantity_calculation": {
+          "excess_supply_basis": "110",
+          "excess_threshold": "180.000000",
+          "effective_target_on_arrival": "80",
+          "target_gap": "0",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "89.000000"
+        },
+        "lead_time_days": 14,
+        "earliest_standard_receipt_date": "2026-07-14",
+        "suggested_order_by": null,
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": false,
+        "review_flags": [],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-002",
+      "description": "Fictional rising-use sleeve",
+      "scenario": "BASELINE",
+      "observed_facts": {
+        "item_id": "PART-002",
+        "description": "Fictional rising-use sleeve",
+        "category": "components",
+        "current_on_hand": "95",
+        "allocated_quantity": "5",
+        "minimum_stock": "15",
+        "target_stock": "110",
+        "supplier_lead_time_days": 35,
+        "unit_cost": "3.00",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "182",
+        "baseline_daily_usage": "2.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "2.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "180.000000"
+      },
+      "projection": {
+        "current_on_hand": "95",
+        "allocated_quantity": "5",
+        "current_available": "90",
+        "safety_threshold": "18.75",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-90.000000",
+        "projected_stock_at_lead_time": "20.000000",
+        "minimum_projected_available": "-90.000000",
+        "stockout_date": "2026-08-15",
+        "below_minimum_date": "2026-08-07",
+        "below_safety_date": "2026-08-05"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "ORDER",
+        "candidate_action": "ORDER",
+        "suggested_quantity": 90,
+        "candidate_quantity": 90,
+        "reason": "Projected stock falls below safety stock before an order placed at the next review could arrive.",
+        "quantity_calculation": {
+          "excess_supply_basis": "90",
+          "excess_threshold": "360.000000",
+          "effective_target_on_arrival": "110",
+          "target_gap": "90.000000",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "6.000000"
+        },
+        "lead_time_days": 35,
+        "earliest_standard_receipt_date": "2026-08-04",
+        "suggested_order_by": "2026-07-01",
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": false,
+        "review_flags": [],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-003",
+      "description": "Fictional long-lead housing",
+      "scenario": "BASELINE",
+      "observed_facts": {
+        "item_id": "PART-003",
+        "description": "Fictional long-lead housing",
+        "category": "components",
+        "current_on_hand": "100",
+        "allocated_quantity": "0",
+        "minimum_stock": "20",
+        "target_stock": "180",
+        "supplier_lead_time_days": 40,
+        "unit_cost": "7.50",
+        "criticality": "high",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "273",
+        "baseline_daily_usage": "3.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "3.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "270.000000"
+      },
+      "projection": {
+        "current_on_hand": "100",
+        "allocated_quantity": "0",
+        "current_available": "100",
+        "safety_threshold": "25.00",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-170.000000",
+        "projected_stock_at_lead_time": "-20.000000",
+        "minimum_projected_available": "-170.000000",
+        "stockout_date": "2026-08-03",
+        "below_minimum_date": "2026-07-27",
+        "below_safety_date": "2026-07-26"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "EXPEDITE",
+        "candidate_action": "EXPEDITE",
+        "suggested_quantity": 200,
+        "candidate_quantity": 200,
+        "reason": "Projected stockout precedes a new standard-lead-time receipt; review faster supply or a demand adjustment.",
+        "quantity_calculation": {
+          "excess_supply_basis": "100",
+          "excess_threshold": "540.000000",
+          "effective_target_on_arrival": "180",
+          "target_gap": "200.000000",
+          "bridge_shortfall_before_arrival": "17.000000",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "-41.000000"
+        },
+        "lead_time_days": 40,
+        "earliest_standard_receipt_date": "2026-08-09",
+        "suggested_order_by": "2026-06-16",
+        "excess_stock": false,
+        "lead_time_risk": true,
+        "review_required": true,
+        "review_flags": [],
+        "priority": 3,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-004",
+      "description": "Fictional inbound-covered spacer",
+      "scenario": "BASELINE",
+      "observed_facts": {
+        "item_id": "PART-004",
+        "description": "Fictional inbound-covered spacer",
+        "category": "components",
+        "current_on_hand": "25",
+        "allocated_quantity": "0",
+        "minimum_stock": "10",
+        "target_stock": "80",
+        "supplier_lead_time_days": 30,
+        "unit_cost": "1.25",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "91",
+        "baseline_daily_usage": "1.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "1.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "90.000000"
+      },
+      "projection": {
+        "current_on_hand": "25",
+        "allocated_quantity": "0",
+        "current_available": "25",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "60",
+        "confirmed_inbound_by_lead_time": "60",
+        "projected_available_at_horizon": "-5.000000",
+        "projected_stock_at_lead_time": "55.000000",
+        "minimum_projected_available": "-5.000000",
+        "stockout_date": "2026-09-24",
+        "below_minimum_date": "2026-09-14",
+        "below_safety_date": "2026-09-11"
+      },
+      "inbound_evaluations": [
+        {
+          "po_reference": "PO-SYN-001",
+          "quantity": "60",
+          "status": "confirmed",
+          "observed_receipt_date": "2026-07-10",
+          "effective_receipt_date": "2026-07-10",
+          "eligible": true,
+          "exclusion_reason": null
+        },
+        {
+          "po_reference": "PO-SYN-004",
+          "quantity": "60",
+          "status": "received",
+          "observed_receipt_date": "2026-06-10",
+          "effective_receipt_date": "2026-06-10",
+          "eligible": false,
+          "exclusion_reason": "status_received"
+        }
+      ],
+      "recommendation": {
+        "action": "MONITOR",
+        "candidate_action": "MONITOR",
+        "suggested_quantity": 0,
+        "candidate_quantity": 0,
+        "reason": "A later safety-stock crossing is projected, beyond the current lead-time and review-cycle trigger.",
+        "quantity_calculation": {
+          "excess_supply_basis": "85",
+          "excess_threshold": "180.000000",
+          "effective_target_on_arrival": "80",
+          "target_gap": "25.000000",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "16.000000"
+        },
+        "lead_time_days": 30,
+        "earliest_standard_receipt_date": "2026-07-30",
+        "suggested_order_by": "2026-08-12",
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": false,
+        "review_flags": [],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-005",
+      "description": "Fictional overdue-supply insert",
+      "scenario": "BASELINE",
+      "observed_facts": {
+        "item_id": "PART-005",
+        "description": "Fictional overdue-supply insert",
+        "category": "components",
+        "current_on_hand": "10",
+        "allocated_quantity": "0",
+        "minimum_stock": "5",
+        "target_stock": "50",
+        "supplier_lead_time_days": 21,
+        "unit_cost": "4.00",
+        "criticality": "high",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "91",
+        "baseline_daily_usage": "1.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "1.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "90.000000"
+      },
+      "projection": {
+        "current_on_hand": "10",
+        "allocated_quantity": "0",
+        "current_available": "10",
+        "safety_threshold": "6.25",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-80.000000",
+        "projected_stock_at_lead_time": "-11.000000",
+        "minimum_projected_available": "-80.000000",
+        "stockout_date": "2026-07-11",
+        "below_minimum_date": "2026-07-06",
+        "below_safety_date": "2026-07-04"
+      },
+      "inbound_evaluations": [
+        {
+          "po_reference": "PO-SYN-002",
+          "quantity": "40",
+          "status": "confirmed",
+          "observed_receipt_date": "2026-06-25",
+          "effective_receipt_date": "2026-06-25",
+          "eligible": false,
+          "exclusion_reason": "OVERDUE_PURCHASE_ORDER"
+        }
+      ],
+      "recommendation": {
+        "action": "HUMAN REVIEW",
+        "candidate_action": "EXPEDITE",
+        "suggested_quantity": null,
+        "candidate_quantity": 61,
+        "reason": "Projected stockout precedes a new standard-lead-time receipt; review faster supply or a demand adjustment.",
+        "quantity_calculation": {
+          "excess_supply_basis": "10",
+          "excess_threshold": "180.000000",
+          "effective_target_on_arrival": "50",
+          "target_gap": "61.000000",
+          "bridge_shortfall_before_arrival": "10.000000",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "-18.000000"
+        },
+        "lead_time_days": 21,
+        "earliest_standard_receipt_date": "2026-07-21",
+        "suggested_order_by": "2026-06-13",
+        "excess_stock": false,
+        "lead_time_risk": true,
+        "review_required": true,
+        "review_flags": [
+          "OVERDUE_PURCHASE_ORDER"
+        ],
+        "priority": 3,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-006",
+      "description": "Fictional occasional-use cap",
+      "scenario": "BASELINE",
+      "observed_facts": {
+        "item_id": "PART-006",
+        "description": "Fictional occasional-use cap",
+        "category": "components",
+        "current_on_hand": "15",
+        "allocated_quantity": "0",
+        "minimum_stock": "2",
+        "target_stock": "30",
+        "supplier_lead_time_days": 14,
+        "unit_cost": "0.80",
+        "criticality": "low",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "18",
+        "baseline_daily_usage": "0.197802",
+        "data_quality": "low",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [
+          "INTERMITTENT_DEMAND",
+          "UNCERTAIN_FORECAST"
+        ],
+        "forecast_daily_usage": "0.197802",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "17.802180"
+      },
+      "projection": {
+        "current_on_hand": "15",
+        "allocated_quantity": "0",
+        "current_available": "15",
+        "safety_threshold": "2.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-2.802180",
+        "projected_stock_at_lead_time": "12.230772",
+        "minimum_projected_available": "-2.802180",
+        "stockout_date": "2026-09-14",
+        "below_minimum_date": "2026-09-04",
+        "below_safety_date": "2026-09-02"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "HUMAN REVIEW",
+        "candidate_action": "MONITOR",
+        "suggested_quantity": null,
+        "candidate_quantity": 0,
+        "reason": "A later safety-stock crossing is projected, beyond the current lead-time and review-cycle trigger.",
+        "quantity_calculation": {
+          "excess_supply_basis": "15",
+          "excess_threshold": "45.0",
+          "effective_target_on_arrival": "30",
+          "target_gap": "17.769228",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "10.846158"
+        },
+        "lead_time_days": 14,
+        "earliest_standard_receipt_date": "2026-07-14",
+        "suggested_order_by": "2026-08-19",
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": true,
+        "review_flags": [
+          "INTERMITTENT_DEMAND",
+          "UNCERTAIN_FORECAST"
+        ],
+        "priority": 1,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-007",
+      "description": "Fictional spike-demand clip",
+      "scenario": "BASELINE",
+      "observed_facts": {
+        "item_id": "PART-007",
+        "description": "Fictional spike-demand clip",
+        "category": "components",
+        "current_on_hand": "60",
+        "allocated_quantity": "0",
+        "minimum_stock": "10",
+        "target_stock": "100",
+        "supplier_lead_time_days": 21,
+        "unit_cost": "1.50",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "241",
+        "baseline_daily_usage": "2.648352",
+        "data_quality": "low",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [
+          "DEMAND_ANOMALY",
+          "UNCERTAIN_FORECAST"
+        ],
+        "forecast_daily_usage": "2.648352",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "238.351680"
+      },
+      "projection": {
+        "current_on_hand": "60",
+        "allocated_quantity": "0",
+        "current_available": "60",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-178.351680",
+        "projected_stock_at_lead_time": "4.384608",
+        "minimum_projected_available": "-178.351680",
+        "stockout_date": "2026-07-23",
+        "below_minimum_date": "2026-07-19",
+        "below_safety_date": "2026-07-18"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "HUMAN REVIEW",
+        "candidate_action": "ORDER",
+        "suggested_quantity": null,
+        "candidate_quantity": 96,
+        "reason": "Projected stock falls below safety stock before an order placed at the next review could arrive.",
+        "quantity_calculation": {
+          "excess_supply_basis": "60",
+          "excess_threshold": "476.703360",
+          "effective_target_on_arrival": "100",
+          "target_gap": "95.615392",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "-14.153856"
+        },
+        "lead_time_days": 21,
+        "earliest_standard_receipt_date": "2026-07-21",
+        "suggested_order_by": "2026-06-27",
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": true,
+        "review_flags": [
+          "DEMAND_ANOMALY",
+          "UNCERTAIN_FORECAST"
+        ],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-008",
+      "description": "Fictional declining-use bracket",
+      "scenario": "BASELINE",
+      "observed_facts": {
+        "item_id": "PART-008",
+        "description": "Fictional declining-use bracket",
+        "category": "components",
+        "current_on_hand": "500",
+        "allocated_quantity": "0",
+        "minimum_stock": "10",
+        "target_stock": "60",
+        "supplier_lead_time_days": 14,
+        "unit_cost": "6.00",
+        "criticality": "low",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "106",
+        "baseline_daily_usage": "1.164835",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "1.164835",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "104.835150"
+      },
+      "projection": {
+        "current_on_hand": "500",
+        "allocated_quantity": "0",
+        "current_available": "500",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "395.164850",
+        "projected_stock_at_lead_time": "483.692310",
+        "minimum_projected_available": "395.164850",
+        "stockout_date": null,
+        "below_minimum_date": null,
+        "below_safety_date": null
+      },
+      "inbound_evaluations": [
+        {
+          "po_reference": "PO-SYN-006",
+          "quantity": "100",
+          "status": "unconfirmed",
+          "observed_receipt_date": "2026-07-15",
+          "effective_receipt_date": "2026-07-15",
+          "eligible": false,
+          "exclusion_reason": "status_unconfirmed"
+        }
+      ],
+      "recommendation": {
+        "action": "REDUCE / REVIEW EXCESS",
+        "candidate_action": "REDUCE / REVIEW EXCESS",
+        "suggested_quantity": 0,
+        "candidate_quantity": 0,
+        "reason": "Available stock plus eligible horizon inbound exceeds the documented excess threshold; review future buying, not automatic disposal.",
+        "quantity_calculation": {
+          "excess_supply_basis": "500",
+          "excess_threshold": "209.670300",
+          "effective_target_on_arrival": "60",
+          "target_gap": "0",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "475.538465"
+        },
+        "lead_time_days": 14,
+        "earliest_standard_receipt_date": "2026-07-14",
+        "suggested_order_by": null,
+        "excess_stock": true,
+        "lead_time_risk": false,
+        "review_required": true,
+        "review_flags": [],
+        "priority": 1,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-009",
+      "description": "Fictional new-item bushing",
+      "scenario": "BASELINE",
+      "observed_facts": {
+        "item_id": "PART-009",
+        "description": "Fictional new-item bushing",
+        "category": "components",
+        "current_on_hand": "20",
+        "allocated_quantity": "0",
+        "minimum_stock": "5",
+        "target_stock": "50",
+        "supplier_lead_time_days": 14,
+        "unit_cost": "2.00",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-06-01"
+        ],
+        "observed_days": 30,
+        "observed_usage": "30",
+        "baseline_daily_usage": "1.000000",
+        "data_quality": "low",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [
+          "INSUFFICIENT_HISTORY",
+          "UNCERTAIN_FORECAST"
+        ],
+        "forecast_daily_usage": "1.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "90.000000"
+      },
+      "projection": {
+        "current_on_hand": "20",
+        "allocated_quantity": "0",
+        "current_available": "20",
+        "safety_threshold": "6.25",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-70.000000",
+        "projected_stock_at_lead_time": "6.000000",
+        "minimum_projected_available": "-70.000000",
+        "stockout_date": "2026-07-21",
+        "below_minimum_date": "2026-07-16",
+        "below_safety_date": "2026-07-14"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "HUMAN REVIEW",
+        "candidate_action": "ORDER",
+        "suggested_quantity": null,
+        "candidate_quantity": 44,
+        "reason": "Projected stock falls below safety stock before an order placed at the next review could arrive.",
+        "quantity_calculation": {
+          "excess_supply_basis": "20",
+          "excess_threshold": "180.000000",
+          "effective_target_on_arrival": "50",
+          "target_gap": "44.000000",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "-1.000000"
+        },
+        "lead_time_days": 14,
+        "earliest_standard_receipt_date": "2026-07-14",
+        "suggested_order_by": "2026-06-30",
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": true,
+        "review_flags": [
+          "INSUFFICIENT_HISTORY",
+          "UNCERTAIN_FORECAST"
+        ],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-010",
+      "description": "Fictional critical fixture",
+      "scenario": "BASELINE",
+      "observed_facts": {
+        "item_id": "PART-010",
+        "description": "Fictional critical fixture",
+        "category": "components",
+        "current_on_hand": "25",
+        "allocated_quantity": "0",
+        "minimum_stock": "10",
+        "target_stock": "80",
+        "supplier_lead_time_days": 14,
+        "unit_cost": "9.00",
+        "criticality": "critical",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "182",
+        "baseline_daily_usage": "2.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "2.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "180.000000"
+      },
+      "projection": {
+        "current_on_hand": "25",
+        "allocated_quantity": "0",
+        "current_available": "25",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-155.000000",
+        "projected_stock_at_lead_time": "-3.000000",
+        "minimum_projected_available": "-155.000000",
+        "stockout_date": "2026-07-13",
+        "below_minimum_date": "2026-07-08",
+        "below_safety_date": "2026-07-07"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "EXPEDITE",
+        "candidate_action": "EXPEDITE",
+        "suggested_quantity": 83,
+        "candidate_quantity": 83,
+        "reason": "Projected stockout precedes a new standard-lead-time receipt; review faster supply or a demand adjustment.",
+        "quantity_calculation": {
+          "excess_supply_basis": "25",
+          "excess_threshold": "360.000000",
+          "effective_target_on_arrival": "80",
+          "target_gap": "83.000000",
+          "bridge_shortfall_before_arrival": "1.000000",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "-17.000000"
+        },
+        "lead_time_days": 14,
+        "earliest_standard_receipt_date": "2026-07-14",
+        "suggested_order_by": "2026-06-23",
+        "excess_stock": false,
+        "lead_time_risk": true,
+        "review_required": true,
+        "review_flags": [],
+        "priority": 4,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-011",
+      "description": "Fictional demand-sensitive ring",
+      "scenario": "BASELINE",
+      "observed_facts": {
+        "item_id": "PART-011",
+        "description": "Fictional demand-sensitive ring",
+        "category": "components",
+        "current_on_hand": "52",
+        "allocated_quantity": "0",
+        "minimum_stock": "10",
+        "target_stock": "60",
+        "supplier_lead_time_days": 30,
+        "unit_cost": "2.25",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "91",
+        "baseline_daily_usage": "1.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "1.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "90.000000"
+      },
+      "projection": {
+        "current_on_hand": "52",
+        "allocated_quantity": "0",
+        "current_available": "52",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-38.000000",
+        "projected_stock_at_lead_time": "22.000000",
+        "minimum_projected_available": "-38.000000",
+        "stockout_date": "2026-08-22",
+        "below_minimum_date": "2026-08-12",
+        "below_safety_date": "2026-08-09"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "MONITOR",
+        "candidate_action": "MONITOR",
+        "suggested_quantity": 0,
+        "candidate_quantity": 0,
+        "reason": "A later safety-stock crossing is projected, beyond the current lead-time and review-cycle trigger.",
+        "quantity_calculation": {
+          "excess_supply_basis": "52",
+          "excess_threshold": "180.000000",
+          "effective_target_on_arrival": "60",
+          "target_gap": "38.000000",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "15.000000"
+        },
+        "lead_time_days": 30,
+        "earliest_standard_receipt_date": "2026-07-30",
+        "suggested_order_by": "2026-07-10",
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": false,
+        "review_flags": [],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-012",
+      "description": "Fictional lead-sensitive liner",
+      "scenario": "BASELINE",
+      "observed_facts": {
+        "item_id": "PART-012",
+        "description": "Fictional lead-sensitive liner",
+        "category": "components",
+        "current_on_hand": "60",
+        "allocated_quantity": "0",
+        "minimum_stock": "10",
+        "target_stock": "70",
+        "supplier_lead_time_days": 35,
+        "unit_cost": "3.50",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "91",
+        "baseline_daily_usage": "1.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "1.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "90.000000"
+      },
+      "projection": {
+        "current_on_hand": "60",
+        "allocated_quantity": "0",
+        "current_available": "60",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-30.000000",
+        "projected_stock_at_lead_time": "25.000000",
+        "minimum_projected_available": "-30.000000",
+        "stockout_date": "2026-08-30",
+        "below_minimum_date": "2026-08-20",
+        "below_safety_date": "2026-08-17"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "MONITOR",
+        "candidate_action": "MONITOR",
+        "suggested_quantity": 0,
+        "candidate_quantity": 0,
+        "reason": "A later safety-stock crossing is projected, beyond the current lead-time and review-cycle trigger.",
+        "quantity_calculation": {
+          "excess_supply_basis": "60",
+          "excess_threshold": "180.000000",
+          "effective_target_on_arrival": "70",
+          "target_gap": "45.000000",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "18.000000"
+        },
+        "lead_time_days": 35,
+        "earliest_standard_receipt_date": "2026-08-04",
+        "suggested_order_by": "2026-07-13",
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": false,
+        "review_flags": [],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "KIT-001",
+      "description": "Fictional dormant assembly kit",
+      "scenario": "BASELINE",
+      "observed_facts": {
+        "item_id": "KIT-001",
+        "description": "Fictional dormant assembly kit",
+        "category": "kits",
+        "current_on_hand": "90",
+        "allocated_quantity": "0",
+        "minimum_stock": "0",
+        "target_stock": "30",
+        "supplier_lead_time_days": 14,
+        "unit_cost": "12.00",
+        "criticality": "low",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "0",
+        "baseline_daily_usage": "0.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "0.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "0.000000"
+      },
+      "projection": {
+        "current_on_hand": "90",
+        "allocated_quantity": "0",
+        "current_available": "90",
+        "safety_threshold": "0.00",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "30",
+        "confirmed_inbound_by_lead_time": "30",
+        "projected_available_at_horizon": "120.000000",
+        "projected_stock_at_lead_time": "120.000000",
+        "minimum_projected_available": "90",
+        "stockout_date": null,
+        "below_minimum_date": null,
+        "below_safety_date": null
+      },
+      "inbound_evaluations": [
+        {
+          "po_reference": "PO-SYN-007",
+          "quantity": "30",
+          "status": "confirmed",
+          "observed_receipt_date": "2026-07-12",
+          "effective_receipt_date": "2026-07-12",
+          "eligible": true,
+          "exclusion_reason": null
+        }
+      ],
+      "recommendation": {
+        "action": "REDUCE / REVIEW EXCESS",
+        "candidate_action": "REDUCE / REVIEW EXCESS",
+        "suggested_quantity": 0,
+        "candidate_quantity": 0,
+        "reason": "Available stock plus eligible horizon inbound exceeds the documented excess threshold; review future buying, not automatic disposal.",
+        "quantity_calculation": {
+          "excess_supply_basis": "120",
+          "excess_threshold": "45.0",
+          "effective_target_on_arrival": "30",
+          "target_gap": "0",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "90"
+        },
+        "lead_time_days": 14,
+        "earliest_standard_receipt_date": "2026-07-14",
+        "suggested_order_by": null,
+        "excess_stock": true,
+        "lead_time_risk": false,
+        "review_required": true,
+        "review_flags": [],
+        "priority": 1,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "KIT-002",
+      "description": "Fictional incomplete-count kit",
+      "scenario": "BASELINE",
+      "observed_facts": {
+        "item_id": "KIT-002",
+        "description": "Fictional incomplete-count kit",
+        "category": "kits",
+        "current_on_hand": "8",
+        "allocated_quantity": "12",
+        "minimum_stock": "5",
+        "target_stock": "40",
+        "supplier_lead_time_days": null,
+        "unit_cost": null,
+        "criticality": "high",
+        "last_updated": "2026-04-01"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "45.5",
+        "baseline_daily_usage": "0.500000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "0.500000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "45.000000"
+      },
+      "projection": {
+        "current_on_hand": "8",
+        "allocated_quantity": "12",
+        "current_available": "-4",
+        "safety_threshold": "6.25",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-49.000000",
+        "projected_stock_at_lead_time": null,
+        "minimum_projected_available": "-49.000000",
+        "stockout_date": "2026-06-30",
+        "below_minimum_date": "2026-06-30",
+        "below_safety_date": "2026-06-30"
+      },
+      "inbound_evaluations": [
+        {
+          "po_reference": "PO-SYN-005",
+          "quantity": "30",
+          "status": "confirmed",
+          "observed_receipt_date": null,
+          "effective_receipt_date": null,
+          "eligible": false,
+          "exclusion_reason": "MISSING_RECEIPT_DATE"
+        }
+      ],
+      "recommendation": {
+        "action": "HUMAN REVIEW",
+        "candidate_action": "HUMAN REVIEW",
+        "suggested_quantity": null,
+        "candidate_quantity": null,
+        "reason": "A forecast and positive lead time are required for purchasing calculations.",
+        "quantity_calculation": {
+          "excess_supply_basis": "-4",
+          "excess_threshold": "90.000000"
+        },
+        "lead_time_days": null,
+        "earliest_standard_receipt_date": null,
+        "suggested_order_by": null,
+        "excess_stock": false,
+        "lead_time_risk": null,
+        "review_required": true,
+        "review_flags": [
+          "INCONSISTENT_QUANTITIES",
+          "MISSING_RECEIPT_DATE",
+          "STALE_COUNT",
+          "UNKNOWN_LEAD_TIME"
+        ],
+        "priority": 3,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-001",
+      "description": "Fictional steady coupling",
+      "scenario": "DEMAND +20%",
+      "observed_facts": {
+        "item_id": "PART-001",
+        "description": "Fictional steady coupling",
+        "category": "components",
+        "current_on_hand": "120",
+        "allocated_quantity": "10",
+        "minimum_stock": "10",
+        "target_stock": "80",
+        "supplier_lead_time_days": 14,
+        "unit_cost": "2.50",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "91",
+        "baseline_daily_usage": "1.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "1.200000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "108.000000"
+      },
+      "projection": {
+        "current_on_hand": "120",
+        "allocated_quantity": "10",
+        "current_available": "110",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "2.000000",
+        "projected_stock_at_lead_time": "93.200000",
+        "minimum_projected_available": "2.000000",
+        "stockout_date": null,
+        "below_minimum_date": "2026-09-22",
+        "below_safety_date": "2026-09-20"
+      },
+      "inbound_evaluations": [
+        {
+          "po_reference": "PO-SYN-003",
+          "quantity": "999",
+          "status": "cancelled",
+          "observed_receipt_date": "2026-07-08",
+          "effective_receipt_date": "2026-07-08",
+          "eligible": false,
+          "exclusion_reason": "status_cancelled"
+        }
+      ],
+      "recommendation": {
+        "action": "MONITOR",
+        "candidate_action": "MONITOR",
+        "suggested_quantity": 0,
+        "candidate_quantity": 0,
+        "reason": "A later safety-stock crossing is projected, beyond the current lead-time and review-cycle trigger.",
+        "quantity_calculation": {
+          "excess_supply_basis": "110",
+          "excess_threshold": "216.000000",
+          "effective_target_on_arrival": "80",
+          "target_gap": "0",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "84.800000"
+        },
+        "lead_time_days": 14,
+        "earliest_standard_receipt_date": "2026-07-14",
+        "suggested_order_by": "2026-09-06",
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": false,
+        "review_flags": [],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-002",
+      "description": "Fictional rising-use sleeve",
+      "scenario": "DEMAND +20%",
+      "observed_facts": {
+        "item_id": "PART-002",
+        "description": "Fictional rising-use sleeve",
+        "category": "components",
+        "current_on_hand": "95",
+        "allocated_quantity": "5",
+        "minimum_stock": "15",
+        "target_stock": "110",
+        "supplier_lead_time_days": 35,
+        "unit_cost": "3.00",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "182",
+        "baseline_daily_usage": "2.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "2.400000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "216.000000"
+      },
+      "projection": {
+        "current_on_hand": "95",
+        "allocated_quantity": "5",
+        "current_available": "90",
+        "safety_threshold": "18.75",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-126.000000",
+        "projected_stock_at_lead_time": "6.000000",
+        "minimum_projected_available": "-126.000000",
+        "stockout_date": "2026-08-07",
+        "below_minimum_date": "2026-08-01",
+        "below_safety_date": "2026-07-30"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "ORDER",
+        "candidate_action": "ORDER",
+        "suggested_quantity": 104,
+        "candidate_quantity": 104,
+        "reason": "Projected stock falls below safety stock before an order placed at the next review could arrive.",
+        "quantity_calculation": {
+          "excess_supply_basis": "90",
+          "excess_threshold": "432.000000",
+          "effective_target_on_arrival": "110",
+          "target_gap": "104.000000",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "-10.800000"
+        },
+        "lead_time_days": 35,
+        "earliest_standard_receipt_date": "2026-08-04",
+        "suggested_order_by": "2026-06-25",
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": false,
+        "review_flags": [],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-003",
+      "description": "Fictional long-lead housing",
+      "scenario": "DEMAND +20%",
+      "observed_facts": {
+        "item_id": "PART-003",
+        "description": "Fictional long-lead housing",
+        "category": "components",
+        "current_on_hand": "100",
+        "allocated_quantity": "0",
+        "minimum_stock": "20",
+        "target_stock": "180",
+        "supplier_lead_time_days": 40,
+        "unit_cost": "7.50",
+        "criticality": "high",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "273",
+        "baseline_daily_usage": "3.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "3.600000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "324.000000"
+      },
+      "projection": {
+        "current_on_hand": "100",
+        "allocated_quantity": "0",
+        "current_available": "100",
+        "safety_threshold": "25.00",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-224.000000",
+        "projected_stock_at_lead_time": "-44.000000",
+        "minimum_projected_available": "-224.000000",
+        "stockout_date": "2026-07-28",
+        "below_minimum_date": "2026-07-23",
+        "below_safety_date": "2026-07-21"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "EXPEDITE",
+        "candidate_action": "EXPEDITE",
+        "suggested_quantity": 224,
+        "candidate_quantity": 224,
+        "reason": "Projected stockout precedes a new standard-lead-time receipt; review faster supply or a demand adjustment.",
+        "quantity_calculation": {
+          "excess_supply_basis": "100",
+          "excess_threshold": "648.000000",
+          "effective_target_on_arrival": "180",
+          "target_gap": "224.000000",
+          "bridge_shortfall_before_arrival": "40.400000",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "-69.200000"
+        },
+        "lead_time_days": 40,
+        "earliest_standard_receipt_date": "2026-08-09",
+        "suggested_order_by": "2026-06-11",
+        "excess_stock": false,
+        "lead_time_risk": true,
+        "review_required": true,
+        "review_flags": [],
+        "priority": 3,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-004",
+      "description": "Fictional inbound-covered spacer",
+      "scenario": "DEMAND +20%",
+      "observed_facts": {
+        "item_id": "PART-004",
+        "description": "Fictional inbound-covered spacer",
+        "category": "components",
+        "current_on_hand": "25",
+        "allocated_quantity": "0",
+        "minimum_stock": "10",
+        "target_stock": "80",
+        "supplier_lead_time_days": 30,
+        "unit_cost": "1.25",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "91",
+        "baseline_daily_usage": "1.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "1.200000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "108.000000"
+      },
+      "projection": {
+        "current_on_hand": "25",
+        "allocated_quantity": "0",
+        "current_available": "25",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "60",
+        "confirmed_inbound_by_lead_time": "60",
+        "projected_available_at_horizon": "-23.000000",
+        "projected_stock_at_lead_time": "49.000000",
+        "minimum_projected_available": "-23.000000",
+        "stockout_date": "2026-09-09",
+        "below_minimum_date": "2026-09-01",
+        "below_safety_date": "2026-08-30"
+      },
+      "inbound_evaluations": [
+        {
+          "po_reference": "PO-SYN-001",
+          "quantity": "60",
+          "status": "confirmed",
+          "observed_receipt_date": "2026-07-10",
+          "effective_receipt_date": "2026-07-10",
+          "eligible": true,
+          "exclusion_reason": null
+        },
+        {
+          "po_reference": "PO-SYN-004",
+          "quantity": "60",
+          "status": "received",
+          "observed_receipt_date": "2026-06-10",
+          "effective_receipt_date": "2026-06-10",
+          "eligible": false,
+          "exclusion_reason": "status_received"
+        }
+      ],
+      "recommendation": {
+        "action": "MONITOR",
+        "candidate_action": "MONITOR",
+        "suggested_quantity": 0,
+        "candidate_quantity": 0,
+        "reason": "A later safety-stock crossing is projected, beyond the current lead-time and review-cycle trigger.",
+        "quantity_calculation": {
+          "excess_supply_basis": "85",
+          "excess_threshold": "216.000000",
+          "effective_target_on_arrival": "80",
+          "target_gap": "31.000000",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "14.200000"
+        },
+        "lead_time_days": 30,
+        "earliest_standard_receipt_date": "2026-07-30",
+        "suggested_order_by": "2026-07-31",
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": false,
+        "review_flags": [],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-005",
+      "description": "Fictional overdue-supply insert",
+      "scenario": "DEMAND +20%",
+      "observed_facts": {
+        "item_id": "PART-005",
+        "description": "Fictional overdue-supply insert",
+        "category": "components",
+        "current_on_hand": "10",
+        "allocated_quantity": "0",
+        "minimum_stock": "5",
+        "target_stock": "50",
+        "supplier_lead_time_days": 21,
+        "unit_cost": "4.00",
+        "criticality": "high",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "91",
+        "baseline_daily_usage": "1.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "1.200000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "108.000000"
+      },
+      "projection": {
+        "current_on_hand": "10",
+        "allocated_quantity": "0",
+        "current_available": "10",
+        "safety_threshold": "6.25",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-98.000000",
+        "projected_stock_at_lead_time": "-15.200000",
+        "minimum_projected_available": "-98.000000",
+        "stockout_date": "2026-07-09",
+        "below_minimum_date": "2026-07-05",
+        "below_safety_date": "2026-07-04"
+      },
+      "inbound_evaluations": [
+        {
+          "po_reference": "PO-SYN-002",
+          "quantity": "40",
+          "status": "confirmed",
+          "observed_receipt_date": "2026-06-25",
+          "effective_receipt_date": "2026-06-25",
+          "eligible": false,
+          "exclusion_reason": "OVERDUE_PURCHASE_ORDER"
+        }
+      ],
+      "recommendation": {
+        "action": "HUMAN REVIEW",
+        "candidate_action": "EXPEDITE",
+        "suggested_quantity": null,
+        "candidate_quantity": 66,
+        "reason": "Projected stockout precedes a new standard-lead-time receipt; review faster supply or a demand adjustment.",
+        "quantity_calculation": {
+          "excess_supply_basis": "10",
+          "excess_threshold": "216.000000",
+          "effective_target_on_arrival": "50",
+          "target_gap": "65.200000",
+          "bridge_shortfall_before_arrival": "14.000000",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "-23.600000"
+        },
+        "lead_time_days": 21,
+        "earliest_standard_receipt_date": "2026-07-21",
+        "suggested_order_by": "2026-06-13",
+        "excess_stock": false,
+        "lead_time_risk": true,
+        "review_required": true,
+        "review_flags": [
+          "OVERDUE_PURCHASE_ORDER"
+        ],
+        "priority": 3,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-006",
+      "description": "Fictional occasional-use cap",
+      "scenario": "DEMAND +20%",
+      "observed_facts": {
+        "item_id": "PART-006",
+        "description": "Fictional occasional-use cap",
+        "category": "components",
+        "current_on_hand": "15",
+        "allocated_quantity": "0",
+        "minimum_stock": "2",
+        "target_stock": "30",
+        "supplier_lead_time_days": 14,
+        "unit_cost": "0.80",
+        "criticality": "low",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "18",
+        "baseline_daily_usage": "0.197802",
+        "data_quality": "low",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [
+          "INTERMITTENT_DEMAND",
+          "UNCERTAIN_FORECAST"
+        ],
+        "forecast_daily_usage": "0.237362",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "21.362580"
+      },
+      "projection": {
+        "current_on_hand": "15",
+        "allocated_quantity": "0",
+        "current_available": "15",
+        "safety_threshold": "2.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-6.362580",
+        "projected_stock_at_lead_time": "11.676932",
+        "minimum_projected_available": "-6.362580",
+        "stockout_date": "2026-09-02",
+        "below_minimum_date": "2026-08-24",
+        "below_safety_date": "2026-08-22"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "HUMAN REVIEW",
+        "candidate_action": "MONITOR",
+        "suggested_quantity": null,
+        "candidate_quantity": 0,
+        "reason": "A later safety-stock crossing is projected, beyond the current lead-time and review-cycle trigger.",
+        "quantity_calculation": {
+          "excess_supply_basis": "15",
+          "excess_threshold": "45.0",
+          "effective_target_on_arrival": "30",
+          "target_gap": "18.323068",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "10.015398"
+        },
+        "lead_time_days": 14,
+        "earliest_standard_receipt_date": "2026-07-14",
+        "suggested_order_by": "2026-08-08",
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": true,
+        "review_flags": [
+          "INTERMITTENT_DEMAND",
+          "UNCERTAIN_FORECAST"
+        ],
+        "priority": 1,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-007",
+      "description": "Fictional spike-demand clip",
+      "scenario": "DEMAND +20%",
+      "observed_facts": {
+        "item_id": "PART-007",
+        "description": "Fictional spike-demand clip",
+        "category": "components",
+        "current_on_hand": "60",
+        "allocated_quantity": "0",
+        "minimum_stock": "10",
+        "target_stock": "100",
+        "supplier_lead_time_days": 21,
+        "unit_cost": "1.50",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "241",
+        "baseline_daily_usage": "2.648352",
+        "data_quality": "low",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [
+          "DEMAND_ANOMALY",
+          "UNCERTAIN_FORECAST"
+        ],
+        "forecast_daily_usage": "3.178022",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "286.021980"
+      },
+      "projection": {
+        "current_on_hand": "60",
+        "allocated_quantity": "0",
+        "current_available": "60",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-226.021980",
+        "projected_stock_at_lead_time": "-6.738462",
+        "minimum_projected_available": "-226.021980",
+        "stockout_date": "2026-07-19",
+        "below_minimum_date": "2026-07-16",
+        "below_safety_date": "2026-07-15"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "HUMAN REVIEW",
+        "candidate_action": "EXPEDITE",
+        "suggested_quantity": null,
+        "candidate_quantity": 107,
+        "reason": "Projected stockout precedes a new standard-lead-time receipt; review faster supply or a demand adjustment.",
+        "quantity_calculation": {
+          "excess_supply_basis": "60",
+          "excess_threshold": "572.043960",
+          "effective_target_on_arrival": "100",
+          "target_gap": "106.738462",
+          "bridge_shortfall_before_arrival": "3.560440",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "-28.984616"
+        },
+        "lead_time_days": 21,
+        "earliest_standard_receipt_date": "2026-07-21",
+        "suggested_order_by": "2026-06-24",
+        "excess_stock": false,
+        "lead_time_risk": true,
+        "review_required": true,
+        "review_flags": [
+          "DEMAND_ANOMALY",
+          "UNCERTAIN_FORECAST"
+        ],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-008",
+      "description": "Fictional declining-use bracket",
+      "scenario": "DEMAND +20%",
+      "observed_facts": {
+        "item_id": "PART-008",
+        "description": "Fictional declining-use bracket",
+        "category": "components",
+        "current_on_hand": "500",
+        "allocated_quantity": "0",
+        "minimum_stock": "10",
+        "target_stock": "60",
+        "supplier_lead_time_days": 14,
+        "unit_cost": "6.00",
+        "criticality": "low",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "106",
+        "baseline_daily_usage": "1.164835",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "1.397802",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "125.802180"
+      },
+      "projection": {
+        "current_on_hand": "500",
+        "allocated_quantity": "0",
+        "current_available": "500",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "374.197820",
+        "projected_stock_at_lead_time": "480.430772",
+        "minimum_projected_available": "374.197820",
+        "stockout_date": null,
+        "below_minimum_date": null,
+        "below_safety_date": null
+      },
+      "inbound_evaluations": [
+        {
+          "po_reference": "PO-SYN-006",
+          "quantity": "100",
+          "status": "unconfirmed",
+          "observed_receipt_date": "2026-07-15",
+          "effective_receipt_date": "2026-07-15",
+          "eligible": false,
+          "exclusion_reason": "status_unconfirmed"
+        }
+      ],
+      "recommendation": {
+        "action": "REDUCE / REVIEW EXCESS",
+        "candidate_action": "REDUCE / REVIEW EXCESS",
+        "suggested_quantity": 0,
+        "candidate_quantity": 0,
+        "reason": "Available stock plus eligible horizon inbound exceeds the documented excess threshold; review future buying, not automatic disposal.",
+        "quantity_calculation": {
+          "excess_supply_basis": "500",
+          "excess_threshold": "251.604360",
+          "effective_target_on_arrival": "60",
+          "target_gap": "0",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "470.646158"
+        },
+        "lead_time_days": 14,
+        "earliest_standard_receipt_date": "2026-07-14",
+        "suggested_order_by": null,
+        "excess_stock": true,
+        "lead_time_risk": false,
+        "review_required": true,
+        "review_flags": [],
+        "priority": 1,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-009",
+      "description": "Fictional new-item bushing",
+      "scenario": "DEMAND +20%",
+      "observed_facts": {
+        "item_id": "PART-009",
+        "description": "Fictional new-item bushing",
+        "category": "components",
+        "current_on_hand": "20",
+        "allocated_quantity": "0",
+        "minimum_stock": "5",
+        "target_stock": "50",
+        "supplier_lead_time_days": 14,
+        "unit_cost": "2.00",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-06-01"
+        ],
+        "observed_days": 30,
+        "observed_usage": "30",
+        "baseline_daily_usage": "1.000000",
+        "data_quality": "low",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [
+          "INSUFFICIENT_HISTORY",
+          "UNCERTAIN_FORECAST"
+        ],
+        "forecast_daily_usage": "1.200000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "108.000000"
+      },
+      "projection": {
+        "current_on_hand": "20",
+        "allocated_quantity": "0",
+        "current_available": "20",
+        "safety_threshold": "6.25",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-88.000000",
+        "projected_stock_at_lead_time": "3.200000",
+        "minimum_projected_available": "-88.000000",
+        "stockout_date": "2026-07-17",
+        "below_minimum_date": "2026-07-13",
+        "below_safety_date": "2026-07-12"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "HUMAN REVIEW",
+        "candidate_action": "ORDER",
+        "suggested_quantity": null,
+        "candidate_quantity": 47,
+        "reason": "Projected stock falls below safety stock before an order placed at the next review could arrive.",
+        "quantity_calculation": {
+          "excess_supply_basis": "20",
+          "excess_threshold": "216.000000",
+          "effective_target_on_arrival": "50",
+          "target_gap": "46.800000",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "-5.200000"
+        },
+        "lead_time_days": 14,
+        "earliest_standard_receipt_date": "2026-07-14",
+        "suggested_order_by": "2026-06-28",
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": true,
+        "review_flags": [
+          "INSUFFICIENT_HISTORY",
+          "UNCERTAIN_FORECAST"
+        ],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-010",
+      "description": "Fictional critical fixture",
+      "scenario": "DEMAND +20%",
+      "observed_facts": {
+        "item_id": "PART-010",
+        "description": "Fictional critical fixture",
+        "category": "components",
+        "current_on_hand": "25",
+        "allocated_quantity": "0",
+        "minimum_stock": "10",
+        "target_stock": "80",
+        "supplier_lead_time_days": 14,
+        "unit_cost": "9.00",
+        "criticality": "critical",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "182",
+        "baseline_daily_usage": "2.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "2.400000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "216.000000"
+      },
+      "projection": {
+        "current_on_hand": "25",
+        "allocated_quantity": "0",
+        "current_available": "25",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-191.000000",
+        "projected_stock_at_lead_time": "-8.600000",
+        "minimum_projected_available": "-191.000000",
+        "stockout_date": "2026-07-11",
+        "below_minimum_date": "2026-07-07",
+        "below_safety_date": "2026-07-06"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "EXPEDITE",
+        "candidate_action": "EXPEDITE",
+        "suggested_quantity": 89,
+        "candidate_quantity": 89,
+        "reason": "Projected stockout precedes a new standard-lead-time receipt; review faster supply or a demand adjustment.",
+        "quantity_calculation": {
+          "excess_supply_basis": "25",
+          "excess_threshold": "432.000000",
+          "effective_target_on_arrival": "80",
+          "target_gap": "88.600000",
+          "bridge_shortfall_before_arrival": "6.200000",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "-25.400000"
+        },
+        "lead_time_days": 14,
+        "earliest_standard_receipt_date": "2026-07-14",
+        "suggested_order_by": "2026-06-22",
+        "excess_stock": false,
+        "lead_time_risk": true,
+        "review_required": true,
+        "review_flags": [],
+        "priority": 4,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-011",
+      "description": "Fictional demand-sensitive ring",
+      "scenario": "DEMAND +20%",
+      "observed_facts": {
+        "item_id": "PART-011",
+        "description": "Fictional demand-sensitive ring",
+        "category": "components",
+        "current_on_hand": "52",
+        "allocated_quantity": "0",
+        "minimum_stock": "10",
+        "target_stock": "60",
+        "supplier_lead_time_days": 30,
+        "unit_cost": "2.25",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "91",
+        "baseline_daily_usage": "1.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "1.200000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "108.000000"
+      },
+      "projection": {
+        "current_on_hand": "52",
+        "allocated_quantity": "0",
+        "current_available": "52",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-56.000000",
+        "projected_stock_at_lead_time": "16.000000",
+        "minimum_projected_available": "-56.000000",
+        "stockout_date": "2026-08-13",
+        "below_minimum_date": "2026-08-05",
+        "below_safety_date": "2026-08-02"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "ORDER",
+        "candidate_action": "ORDER",
+        "suggested_quantity": 44,
+        "candidate_quantity": 44,
+        "reason": "Projected stock falls below safety stock before an order placed at the next review could arrive.",
+        "quantity_calculation": {
+          "excess_supply_basis": "52",
+          "excess_threshold": "216.000000",
+          "effective_target_on_arrival": "60",
+          "target_gap": "44.000000",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "7.600000"
+        },
+        "lead_time_days": 30,
+        "earliest_standard_receipt_date": "2026-07-30",
+        "suggested_order_by": "2026-07-03",
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": false,
+        "review_flags": [],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-012",
+      "description": "Fictional lead-sensitive liner",
+      "scenario": "DEMAND +20%",
+      "observed_facts": {
+        "item_id": "PART-012",
+        "description": "Fictional lead-sensitive liner",
+        "category": "components",
+        "current_on_hand": "60",
+        "allocated_quantity": "0",
+        "minimum_stock": "10",
+        "target_stock": "70",
+        "supplier_lead_time_days": 35,
+        "unit_cost": "3.50",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "91",
+        "baseline_daily_usage": "1.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "1.200000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "108.000000"
+      },
+      "projection": {
+        "current_on_hand": "60",
+        "allocated_quantity": "0",
+        "current_available": "60",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-48.000000",
+        "projected_stock_at_lead_time": "18.000000",
+        "minimum_projected_available": "-48.000000",
+        "stockout_date": "2026-08-20",
+        "below_minimum_date": "2026-08-11",
+        "below_safety_date": "2026-08-09"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "ORDER",
+        "candidate_action": "ORDER",
+        "suggested_quantity": 52,
+        "candidate_quantity": 52,
+        "reason": "Projected stock falls below safety stock before an order placed at the next review could arrive.",
+        "quantity_calculation": {
+          "excess_supply_basis": "60",
+          "excess_threshold": "216.000000",
+          "effective_target_on_arrival": "70",
+          "target_gap": "52.000000",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "9.600000"
+        },
+        "lead_time_days": 35,
+        "earliest_standard_receipt_date": "2026-08-04",
+        "suggested_order_by": "2026-07-05",
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": false,
+        "review_flags": [],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "KIT-001",
+      "description": "Fictional dormant assembly kit",
+      "scenario": "DEMAND +20%",
+      "observed_facts": {
+        "item_id": "KIT-001",
+        "description": "Fictional dormant assembly kit",
+        "category": "kits",
+        "current_on_hand": "90",
+        "allocated_quantity": "0",
+        "minimum_stock": "0",
+        "target_stock": "30",
+        "supplier_lead_time_days": 14,
+        "unit_cost": "12.00",
+        "criticality": "low",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "0",
+        "baseline_daily_usage": "0.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "0.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "0.000000"
+      },
+      "projection": {
+        "current_on_hand": "90",
+        "allocated_quantity": "0",
+        "current_available": "90",
+        "safety_threshold": "0.00",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "30",
+        "confirmed_inbound_by_lead_time": "30",
+        "projected_available_at_horizon": "120.000000",
+        "projected_stock_at_lead_time": "120.000000",
+        "minimum_projected_available": "90",
+        "stockout_date": null,
+        "below_minimum_date": null,
+        "below_safety_date": null
+      },
+      "inbound_evaluations": [
+        {
+          "po_reference": "PO-SYN-007",
+          "quantity": "30",
+          "status": "confirmed",
+          "observed_receipt_date": "2026-07-12",
+          "effective_receipt_date": "2026-07-12",
+          "eligible": true,
+          "exclusion_reason": null
+        }
+      ],
+      "recommendation": {
+        "action": "REDUCE / REVIEW EXCESS",
+        "candidate_action": "REDUCE / REVIEW EXCESS",
+        "suggested_quantity": 0,
+        "candidate_quantity": 0,
+        "reason": "Available stock plus eligible horizon inbound exceeds the documented excess threshold; review future buying, not automatic disposal.",
+        "quantity_calculation": {
+          "excess_supply_basis": "120",
+          "excess_threshold": "45.0",
+          "effective_target_on_arrival": "30",
+          "target_gap": "0",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "90"
+        },
+        "lead_time_days": 14,
+        "earliest_standard_receipt_date": "2026-07-14",
+        "suggested_order_by": null,
+        "excess_stock": true,
+        "lead_time_risk": false,
+        "review_required": true,
+        "review_flags": [],
+        "priority": 1,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "KIT-002",
+      "description": "Fictional incomplete-count kit",
+      "scenario": "DEMAND +20%",
+      "observed_facts": {
+        "item_id": "KIT-002",
+        "description": "Fictional incomplete-count kit",
+        "category": "kits",
+        "current_on_hand": "8",
+        "allocated_quantity": "12",
+        "minimum_stock": "5",
+        "target_stock": "40",
+        "supplier_lead_time_days": null,
+        "unit_cost": null,
+        "criticality": "high",
+        "last_updated": "2026-04-01"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "45.5",
+        "baseline_daily_usage": "0.500000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "0.600000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "54.000000"
+      },
+      "projection": {
+        "current_on_hand": "8",
+        "allocated_quantity": "12",
+        "current_available": "-4",
+        "safety_threshold": "6.25",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-58.000000",
+        "projected_stock_at_lead_time": null,
+        "minimum_projected_available": "-58.000000",
+        "stockout_date": "2026-06-30",
+        "below_minimum_date": "2026-06-30",
+        "below_safety_date": "2026-06-30"
+      },
+      "inbound_evaluations": [
+        {
+          "po_reference": "PO-SYN-005",
+          "quantity": "30",
+          "status": "confirmed",
+          "observed_receipt_date": null,
+          "effective_receipt_date": null,
+          "eligible": false,
+          "exclusion_reason": "MISSING_RECEIPT_DATE"
+        }
+      ],
+      "recommendation": {
+        "action": "HUMAN REVIEW",
+        "candidate_action": "HUMAN REVIEW",
+        "suggested_quantity": null,
+        "candidate_quantity": null,
+        "reason": "A forecast and positive lead time are required for purchasing calculations.",
+        "quantity_calculation": {
+          "excess_supply_basis": "-4",
+          "excess_threshold": "108.000000"
+        },
+        "lead_time_days": null,
+        "earliest_standard_receipt_date": null,
+        "suggested_order_by": null,
+        "excess_stock": false,
+        "lead_time_risk": null,
+        "review_required": true,
+        "review_flags": [
+          "INCONSISTENT_QUANTITIES",
+          "MISSING_RECEIPT_DATE",
+          "STALE_COUNT",
+          "UNKNOWN_LEAD_TIME"
+        ],
+        "priority": 3,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-001",
+      "description": "Fictional steady coupling",
+      "scenario": "LEAD TIME +14 DAYS",
+      "observed_facts": {
+        "item_id": "PART-001",
+        "description": "Fictional steady coupling",
+        "category": "components",
+        "current_on_hand": "120",
+        "allocated_quantity": "10",
+        "minimum_stock": "10",
+        "target_stock": "80",
+        "supplier_lead_time_days": 14,
+        "unit_cost": "2.50",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "91",
+        "baseline_daily_usage": "1.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "1.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "90.000000"
+      },
+      "projection": {
+        "current_on_hand": "120",
+        "allocated_quantity": "10",
+        "current_available": "110",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "20.000000",
+        "projected_stock_at_lead_time": "82.000000",
+        "minimum_projected_available": "20.000000",
+        "stockout_date": null,
+        "below_minimum_date": null,
+        "below_safety_date": null
+      },
+      "inbound_evaluations": [
+        {
+          "po_reference": "PO-SYN-003",
+          "quantity": "999",
+          "status": "cancelled",
+          "observed_receipt_date": "2026-07-08",
+          "effective_receipt_date": "2026-07-08",
+          "eligible": false,
+          "exclusion_reason": "status_cancelled"
+        }
+      ],
+      "recommendation": {
+        "action": "NO ACTION",
+        "candidate_action": "NO ACTION",
+        "suggested_quantity": 0,
+        "candidate_quantity": 0,
+        "reason": "The dated projection stays above safety stock and below the excess threshold.",
+        "quantity_calculation": {
+          "excess_supply_basis": "110",
+          "excess_threshold": "180.000000",
+          "effective_target_on_arrival": "80",
+          "target_gap": "0",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "75.000000"
+        },
+        "lead_time_days": 28,
+        "earliest_standard_receipt_date": "2026-07-28",
+        "suggested_order_by": null,
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": false,
+        "review_flags": [],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-002",
+      "description": "Fictional rising-use sleeve",
+      "scenario": "LEAD TIME +14 DAYS",
+      "observed_facts": {
+        "item_id": "PART-002",
+        "description": "Fictional rising-use sleeve",
+        "category": "components",
+        "current_on_hand": "95",
+        "allocated_quantity": "5",
+        "minimum_stock": "15",
+        "target_stock": "110",
+        "supplier_lead_time_days": 35,
+        "unit_cost": "3.00",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "182",
+        "baseline_daily_usage": "2.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "2.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "180.000000"
+      },
+      "projection": {
+        "current_on_hand": "95",
+        "allocated_quantity": "5",
+        "current_available": "90",
+        "safety_threshold": "18.75",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-90.000000",
+        "projected_stock_at_lead_time": "-8.000000",
+        "minimum_projected_available": "-90.000000",
+        "stockout_date": "2026-08-15",
+        "below_minimum_date": "2026-08-07",
+        "below_safety_date": "2026-08-05"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "EXPEDITE",
+        "candidate_action": "EXPEDITE",
+        "suggested_quantity": 118,
+        "candidate_quantity": 118,
+        "reason": "Projected stockout precedes a new standard-lead-time receipt; review faster supply or a demand adjustment.",
+        "quantity_calculation": {
+          "excess_supply_basis": "90",
+          "excess_threshold": "360.000000",
+          "effective_target_on_arrival": "110",
+          "target_gap": "118.000000",
+          "bridge_shortfall_before_arrival": "6.000000",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "-22.000000"
+        },
+        "lead_time_days": 49,
+        "earliest_standard_receipt_date": "2026-08-18",
+        "suggested_order_by": "2026-06-17",
+        "excess_stock": false,
+        "lead_time_risk": true,
+        "review_required": true,
+        "review_flags": [],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-003",
+      "description": "Fictional long-lead housing",
+      "scenario": "LEAD TIME +14 DAYS",
+      "observed_facts": {
+        "item_id": "PART-003",
+        "description": "Fictional long-lead housing",
+        "category": "components",
+        "current_on_hand": "100",
+        "allocated_quantity": "0",
+        "minimum_stock": "20",
+        "target_stock": "180",
+        "supplier_lead_time_days": 40,
+        "unit_cost": "7.50",
+        "criticality": "high",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "273",
+        "baseline_daily_usage": "3.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "3.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "270.000000"
+      },
+      "projection": {
+        "current_on_hand": "100",
+        "allocated_quantity": "0",
+        "current_available": "100",
+        "safety_threshold": "25.00",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-170.000000",
+        "projected_stock_at_lead_time": "-62.000000",
+        "minimum_projected_available": "-170.000000",
+        "stockout_date": "2026-08-03",
+        "below_minimum_date": "2026-07-27",
+        "below_safety_date": "2026-07-26"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "EXPEDITE",
+        "candidate_action": "EXPEDITE",
+        "suggested_quantity": 242,
+        "candidate_quantity": 242,
+        "reason": "Projected stockout precedes a new standard-lead-time receipt; review faster supply or a demand adjustment.",
+        "quantity_calculation": {
+          "excess_supply_basis": "100",
+          "excess_threshold": "540.000000",
+          "effective_target_on_arrival": "180",
+          "target_gap": "242.000000",
+          "bridge_shortfall_before_arrival": "59.000000",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "-83.000000"
+        },
+        "lead_time_days": 54,
+        "earliest_standard_receipt_date": "2026-08-23",
+        "suggested_order_by": "2026-06-02",
+        "excess_stock": false,
+        "lead_time_risk": true,
+        "review_required": true,
+        "review_flags": [],
+        "priority": 3,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-004",
+      "description": "Fictional inbound-covered spacer",
+      "scenario": "LEAD TIME +14 DAYS",
+      "observed_facts": {
+        "item_id": "PART-004",
+        "description": "Fictional inbound-covered spacer",
+        "category": "components",
+        "current_on_hand": "25",
+        "allocated_quantity": "0",
+        "minimum_stock": "10",
+        "target_stock": "80",
+        "supplier_lead_time_days": 30,
+        "unit_cost": "1.25",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "91",
+        "baseline_daily_usage": "1.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "1.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "90.000000"
+      },
+      "projection": {
+        "current_on_hand": "25",
+        "allocated_quantity": "0",
+        "current_available": "25",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "60",
+        "confirmed_inbound_by_lead_time": "60",
+        "projected_available_at_horizon": "-5.000000",
+        "projected_stock_at_lead_time": "41.000000",
+        "minimum_projected_available": "-5.000000",
+        "stockout_date": "2026-09-24",
+        "below_minimum_date": "2026-09-14",
+        "below_safety_date": "2026-09-11"
+      },
+      "inbound_evaluations": [
+        {
+          "po_reference": "PO-SYN-001",
+          "quantity": "60",
+          "status": "confirmed",
+          "observed_receipt_date": "2026-07-10",
+          "effective_receipt_date": "2026-07-10",
+          "eligible": true,
+          "exclusion_reason": null
+        },
+        {
+          "po_reference": "PO-SYN-004",
+          "quantity": "60",
+          "status": "received",
+          "observed_receipt_date": "2026-06-10",
+          "effective_receipt_date": "2026-06-10",
+          "eligible": false,
+          "exclusion_reason": "status_received"
+        }
+      ],
+      "recommendation": {
+        "action": "MONITOR",
+        "candidate_action": "MONITOR",
+        "suggested_quantity": 0,
+        "candidate_quantity": 0,
+        "reason": "A later safety-stock crossing is projected, beyond the current lead-time and review-cycle trigger.",
+        "quantity_calculation": {
+          "excess_supply_basis": "85",
+          "excess_threshold": "180.000000",
+          "effective_target_on_arrival": "80",
+          "target_gap": "39.000000",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "16.000000"
+        },
+        "lead_time_days": 44,
+        "earliest_standard_receipt_date": "2026-08-13",
+        "suggested_order_by": "2026-07-29",
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": false,
+        "review_flags": [],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-005",
+      "description": "Fictional overdue-supply insert",
+      "scenario": "LEAD TIME +14 DAYS",
+      "observed_facts": {
+        "item_id": "PART-005",
+        "description": "Fictional overdue-supply insert",
+        "category": "components",
+        "current_on_hand": "10",
+        "allocated_quantity": "0",
+        "minimum_stock": "5",
+        "target_stock": "50",
+        "supplier_lead_time_days": 21,
+        "unit_cost": "4.00",
+        "criticality": "high",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "91",
+        "baseline_daily_usage": "1.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "1.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "90.000000"
+      },
+      "projection": {
+        "current_on_hand": "10",
+        "allocated_quantity": "0",
+        "current_available": "10",
+        "safety_threshold": "6.25",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-80.000000",
+        "projected_stock_at_lead_time": "-25.000000",
+        "minimum_projected_available": "-80.000000",
+        "stockout_date": "2026-07-11",
+        "below_minimum_date": "2026-07-06",
+        "below_safety_date": "2026-07-04"
+      },
+      "inbound_evaluations": [
+        {
+          "po_reference": "PO-SYN-002",
+          "quantity": "40",
+          "status": "confirmed",
+          "observed_receipt_date": "2026-06-25",
+          "effective_receipt_date": "2026-06-25",
+          "eligible": false,
+          "exclusion_reason": "OVERDUE_PURCHASE_ORDER"
+        }
+      ],
+      "recommendation": {
+        "action": "HUMAN REVIEW",
+        "candidate_action": "EXPEDITE",
+        "suggested_quantity": null,
+        "candidate_quantity": 75,
+        "reason": "Projected stockout precedes a new standard-lead-time receipt; review faster supply or a demand adjustment.",
+        "quantity_calculation": {
+          "excess_supply_basis": "10",
+          "excess_threshold": "180.000000",
+          "effective_target_on_arrival": "50",
+          "target_gap": "75.000000",
+          "bridge_shortfall_before_arrival": "24.000000",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "-32.000000"
+        },
+        "lead_time_days": 35,
+        "earliest_standard_receipt_date": "2026-08-04",
+        "suggested_order_by": "2026-05-30",
+        "excess_stock": false,
+        "lead_time_risk": true,
+        "review_required": true,
+        "review_flags": [
+          "OVERDUE_PURCHASE_ORDER"
+        ],
+        "priority": 3,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-006",
+      "description": "Fictional occasional-use cap",
+      "scenario": "LEAD TIME +14 DAYS",
+      "observed_facts": {
+        "item_id": "PART-006",
+        "description": "Fictional occasional-use cap",
+        "category": "components",
+        "current_on_hand": "15",
+        "allocated_quantity": "0",
+        "minimum_stock": "2",
+        "target_stock": "30",
+        "supplier_lead_time_days": 14,
+        "unit_cost": "0.80",
+        "criticality": "low",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "18",
+        "baseline_daily_usage": "0.197802",
+        "data_quality": "low",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [
+          "INTERMITTENT_DEMAND",
+          "UNCERTAIN_FORECAST"
+        ],
+        "forecast_daily_usage": "0.197802",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "17.802180"
+      },
+      "projection": {
+        "current_on_hand": "15",
+        "allocated_quantity": "0",
+        "current_available": "15",
+        "safety_threshold": "2.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-2.802180",
+        "projected_stock_at_lead_time": "9.461544",
+        "minimum_projected_available": "-2.802180",
+        "stockout_date": "2026-09-14",
+        "below_minimum_date": "2026-09-04",
+        "below_safety_date": "2026-09-02"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "HUMAN REVIEW",
+        "candidate_action": "MONITOR",
+        "suggested_quantity": null,
+        "candidate_quantity": 0,
+        "reason": "A later safety-stock crossing is projected, beyond the current lead-time and review-cycle trigger.",
+        "quantity_calculation": {
+          "excess_supply_basis": "15",
+          "excess_threshold": "45.0",
+          "effective_target_on_arrival": "30",
+          "target_gap": "20.538456",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "8.076930"
+        },
+        "lead_time_days": 28,
+        "earliest_standard_receipt_date": "2026-07-28",
+        "suggested_order_by": "2026-08-05",
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": true,
+        "review_flags": [
+          "INTERMITTENT_DEMAND",
+          "UNCERTAIN_FORECAST"
+        ],
+        "priority": 1,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-007",
+      "description": "Fictional spike-demand clip",
+      "scenario": "LEAD TIME +14 DAYS",
+      "observed_facts": {
+        "item_id": "PART-007",
+        "description": "Fictional spike-demand clip",
+        "category": "components",
+        "current_on_hand": "60",
+        "allocated_quantity": "0",
+        "minimum_stock": "10",
+        "target_stock": "100",
+        "supplier_lead_time_days": 21,
+        "unit_cost": "1.50",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "241",
+        "baseline_daily_usage": "2.648352",
+        "data_quality": "low",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [
+          "DEMAND_ANOMALY",
+          "UNCERTAIN_FORECAST"
+        ],
+        "forecast_daily_usage": "2.648352",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "238.351680"
+      },
+      "projection": {
+        "current_on_hand": "60",
+        "allocated_quantity": "0",
+        "current_available": "60",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-178.351680",
+        "projected_stock_at_lead_time": "-32.692320",
+        "minimum_projected_available": "-178.351680",
+        "stockout_date": "2026-07-23",
+        "below_minimum_date": "2026-07-19",
+        "below_safety_date": "2026-07-18"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "HUMAN REVIEW",
+        "candidate_action": "EXPEDITE",
+        "suggested_quantity": null,
+        "candidate_quantity": 133,
+        "reason": "Projected stockout precedes a new standard-lead-time receipt; review faster supply or a demand adjustment.",
+        "quantity_calculation": {
+          "excess_supply_basis": "60",
+          "excess_threshold": "476.703360",
+          "effective_target_on_arrival": "100",
+          "target_gap": "132.692320",
+          "bridge_shortfall_before_arrival": "30.043968",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "-51.230784"
+        },
+        "lead_time_days": 35,
+        "earliest_standard_receipt_date": "2026-08-04",
+        "suggested_order_by": "2026-06-13",
+        "excess_stock": false,
+        "lead_time_risk": true,
+        "review_required": true,
+        "review_flags": [
+          "DEMAND_ANOMALY",
+          "UNCERTAIN_FORECAST"
+        ],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-008",
+      "description": "Fictional declining-use bracket",
+      "scenario": "LEAD TIME +14 DAYS",
+      "observed_facts": {
+        "item_id": "PART-008",
+        "description": "Fictional declining-use bracket",
+        "category": "components",
+        "current_on_hand": "500",
+        "allocated_quantity": "0",
+        "minimum_stock": "10",
+        "target_stock": "60",
+        "supplier_lead_time_days": 14,
+        "unit_cost": "6.00",
+        "criticality": "low",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "106",
+        "baseline_daily_usage": "1.164835",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "1.164835",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "104.835150"
+      },
+      "projection": {
+        "current_on_hand": "500",
+        "allocated_quantity": "0",
+        "current_available": "500",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "395.164850",
+        "projected_stock_at_lead_time": "467.384620",
+        "minimum_projected_available": "395.164850",
+        "stockout_date": null,
+        "below_minimum_date": null,
+        "below_safety_date": null
+      },
+      "inbound_evaluations": [
+        {
+          "po_reference": "PO-SYN-006",
+          "quantity": "100",
+          "status": "unconfirmed",
+          "observed_receipt_date": "2026-07-15",
+          "effective_receipt_date": "2026-07-15",
+          "eligible": false,
+          "exclusion_reason": "status_unconfirmed"
+        }
+      ],
+      "recommendation": {
+        "action": "REDUCE / REVIEW EXCESS",
+        "candidate_action": "REDUCE / REVIEW EXCESS",
+        "suggested_quantity": 0,
+        "candidate_quantity": 0,
+        "reason": "Available stock plus eligible horizon inbound exceeds the documented excess threshold; review future buying, not automatic disposal.",
+        "quantity_calculation": {
+          "excess_supply_basis": "500",
+          "excess_threshold": "209.670300",
+          "effective_target_on_arrival": "60",
+          "target_gap": "0",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "459.230775"
+        },
+        "lead_time_days": 28,
+        "earliest_standard_receipt_date": "2026-07-28",
+        "suggested_order_by": null,
+        "excess_stock": true,
+        "lead_time_risk": false,
+        "review_required": true,
+        "review_flags": [],
+        "priority": 1,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-009",
+      "description": "Fictional new-item bushing",
+      "scenario": "LEAD TIME +14 DAYS",
+      "observed_facts": {
+        "item_id": "PART-009",
+        "description": "Fictional new-item bushing",
+        "category": "components",
+        "current_on_hand": "20",
+        "allocated_quantity": "0",
+        "minimum_stock": "5",
+        "target_stock": "50",
+        "supplier_lead_time_days": 14,
+        "unit_cost": "2.00",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-06-01"
+        ],
+        "observed_days": 30,
+        "observed_usage": "30",
+        "baseline_daily_usage": "1.000000",
+        "data_quality": "low",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [
+          "INSUFFICIENT_HISTORY",
+          "UNCERTAIN_FORECAST"
+        ],
+        "forecast_daily_usage": "1.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "90.000000"
+      },
+      "projection": {
+        "current_on_hand": "20",
+        "allocated_quantity": "0",
+        "current_available": "20",
+        "safety_threshold": "6.25",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-70.000000",
+        "projected_stock_at_lead_time": "-8.000000",
+        "minimum_projected_available": "-70.000000",
+        "stockout_date": "2026-07-21",
+        "below_minimum_date": "2026-07-16",
+        "below_safety_date": "2026-07-14"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "HUMAN REVIEW",
+        "candidate_action": "EXPEDITE",
+        "suggested_quantity": null,
+        "candidate_quantity": 58,
+        "reason": "Projected stockout precedes a new standard-lead-time receipt; review faster supply or a demand adjustment.",
+        "quantity_calculation": {
+          "excess_supply_basis": "20",
+          "excess_threshold": "180.000000",
+          "effective_target_on_arrival": "50",
+          "target_gap": "58.000000",
+          "bridge_shortfall_before_arrival": "7.000000",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "-15.000000"
+        },
+        "lead_time_days": 28,
+        "earliest_standard_receipt_date": "2026-07-28",
+        "suggested_order_by": "2026-06-16",
+        "excess_stock": false,
+        "lead_time_risk": true,
+        "review_required": true,
+        "review_flags": [
+          "INSUFFICIENT_HISTORY",
+          "UNCERTAIN_FORECAST"
+        ],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-010",
+      "description": "Fictional critical fixture",
+      "scenario": "LEAD TIME +14 DAYS",
+      "observed_facts": {
+        "item_id": "PART-010",
+        "description": "Fictional critical fixture",
+        "category": "components",
+        "current_on_hand": "25",
+        "allocated_quantity": "0",
+        "minimum_stock": "10",
+        "target_stock": "80",
+        "supplier_lead_time_days": 14,
+        "unit_cost": "9.00",
+        "criticality": "critical",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "182",
+        "baseline_daily_usage": "2.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "2.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "180.000000"
+      },
+      "projection": {
+        "current_on_hand": "25",
+        "allocated_quantity": "0",
+        "current_available": "25",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-155.000000",
+        "projected_stock_at_lead_time": "-31.000000",
+        "minimum_projected_available": "-155.000000",
+        "stockout_date": "2026-07-13",
+        "below_minimum_date": "2026-07-08",
+        "below_safety_date": "2026-07-07"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "EXPEDITE",
+        "candidate_action": "EXPEDITE",
+        "suggested_quantity": 111,
+        "candidate_quantity": 111,
+        "reason": "Projected stockout precedes a new standard-lead-time receipt; review faster supply or a demand adjustment.",
+        "quantity_calculation": {
+          "excess_supply_basis": "25",
+          "excess_threshold": "360.000000",
+          "effective_target_on_arrival": "80",
+          "target_gap": "111.000000",
+          "bridge_shortfall_before_arrival": "29.000000",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "-45.000000"
+        },
+        "lead_time_days": 28,
+        "earliest_standard_receipt_date": "2026-07-28",
+        "suggested_order_by": "2026-06-09",
+        "excess_stock": false,
+        "lead_time_risk": true,
+        "review_required": true,
+        "review_flags": [],
+        "priority": 4,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-011",
+      "description": "Fictional demand-sensitive ring",
+      "scenario": "LEAD TIME +14 DAYS",
+      "observed_facts": {
+        "item_id": "PART-011",
+        "description": "Fictional demand-sensitive ring",
+        "category": "components",
+        "current_on_hand": "52",
+        "allocated_quantity": "0",
+        "minimum_stock": "10",
+        "target_stock": "60",
+        "supplier_lead_time_days": 30,
+        "unit_cost": "2.25",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "91",
+        "baseline_daily_usage": "1.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "1.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "90.000000"
+      },
+      "projection": {
+        "current_on_hand": "52",
+        "allocated_quantity": "0",
+        "current_available": "52",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-38.000000",
+        "projected_stock_at_lead_time": "8.000000",
+        "minimum_projected_available": "-38.000000",
+        "stockout_date": "2026-08-22",
+        "below_minimum_date": "2026-08-12",
+        "below_safety_date": "2026-08-09"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "ORDER",
+        "candidate_action": "ORDER",
+        "suggested_quantity": 52,
+        "candidate_quantity": 52,
+        "reason": "Projected stock falls below safety stock before an order placed at the next review could arrive.",
+        "quantity_calculation": {
+          "excess_supply_basis": "52",
+          "excess_threshold": "180.000000",
+          "effective_target_on_arrival": "60",
+          "target_gap": "52.000000",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "1.000000"
+        },
+        "lead_time_days": 44,
+        "earliest_standard_receipt_date": "2026-08-13",
+        "suggested_order_by": "2026-06-26",
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": false,
+        "review_flags": [],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-012",
+      "description": "Fictional lead-sensitive liner",
+      "scenario": "LEAD TIME +14 DAYS",
+      "observed_facts": {
+        "item_id": "PART-012",
+        "description": "Fictional lead-sensitive liner",
+        "category": "components",
+        "current_on_hand": "60",
+        "allocated_quantity": "0",
+        "minimum_stock": "10",
+        "target_stock": "70",
+        "supplier_lead_time_days": 35,
+        "unit_cost": "3.50",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "91",
+        "baseline_daily_usage": "1.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "1.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "90.000000"
+      },
+      "projection": {
+        "current_on_hand": "60",
+        "allocated_quantity": "0",
+        "current_available": "60",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-30.000000",
+        "projected_stock_at_lead_time": "11.000000",
+        "minimum_projected_available": "-30.000000",
+        "stockout_date": "2026-08-30",
+        "below_minimum_date": "2026-08-20",
+        "below_safety_date": "2026-08-17"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "ORDER",
+        "candidate_action": "ORDER",
+        "suggested_quantity": 59,
+        "candidate_quantity": 59,
+        "reason": "Projected stock falls below safety stock before an order placed at the next review could arrive.",
+        "quantity_calculation": {
+          "excess_supply_basis": "60",
+          "excess_threshold": "180.000000",
+          "effective_target_on_arrival": "70",
+          "target_gap": "59.000000",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "4.000000"
+        },
+        "lead_time_days": 49,
+        "earliest_standard_receipt_date": "2026-08-18",
+        "suggested_order_by": "2026-06-29",
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": false,
+        "review_flags": [],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "KIT-001",
+      "description": "Fictional dormant assembly kit",
+      "scenario": "LEAD TIME +14 DAYS",
+      "observed_facts": {
+        "item_id": "KIT-001",
+        "description": "Fictional dormant assembly kit",
+        "category": "kits",
+        "current_on_hand": "90",
+        "allocated_quantity": "0",
+        "minimum_stock": "0",
+        "target_stock": "30",
+        "supplier_lead_time_days": 14,
+        "unit_cost": "12.00",
+        "criticality": "low",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "0",
+        "baseline_daily_usage": "0.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "0.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "0.000000"
+      },
+      "projection": {
+        "current_on_hand": "90",
+        "allocated_quantity": "0",
+        "current_available": "90",
+        "safety_threshold": "0.00",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "30",
+        "confirmed_inbound_by_lead_time": "30",
+        "projected_available_at_horizon": "120.000000",
+        "projected_stock_at_lead_time": "120.000000",
+        "minimum_projected_available": "90",
+        "stockout_date": null,
+        "below_minimum_date": null,
+        "below_safety_date": null
+      },
+      "inbound_evaluations": [
+        {
+          "po_reference": "PO-SYN-007",
+          "quantity": "30",
+          "status": "confirmed",
+          "observed_receipt_date": "2026-07-12",
+          "effective_receipt_date": "2026-07-12",
+          "eligible": true,
+          "exclusion_reason": null
+        }
+      ],
+      "recommendation": {
+        "action": "REDUCE / REVIEW EXCESS",
+        "candidate_action": "REDUCE / REVIEW EXCESS",
+        "suggested_quantity": 0,
+        "candidate_quantity": 0,
+        "reason": "Available stock plus eligible horizon inbound exceeds the documented excess threshold; review future buying, not automatic disposal.",
+        "quantity_calculation": {
+          "excess_supply_basis": "120",
+          "excess_threshold": "45.0",
+          "effective_target_on_arrival": "30",
+          "target_gap": "0",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "90"
+        },
+        "lead_time_days": 28,
+        "earliest_standard_receipt_date": "2026-07-28",
+        "suggested_order_by": null,
+        "excess_stock": true,
+        "lead_time_risk": false,
+        "review_required": true,
+        "review_flags": [],
+        "priority": 1,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "KIT-002",
+      "description": "Fictional incomplete-count kit",
+      "scenario": "LEAD TIME +14 DAYS",
+      "observed_facts": {
+        "item_id": "KIT-002",
+        "description": "Fictional incomplete-count kit",
+        "category": "kits",
+        "current_on_hand": "8",
+        "allocated_quantity": "12",
+        "minimum_stock": "5",
+        "target_stock": "40",
+        "supplier_lead_time_days": null,
+        "unit_cost": null,
+        "criticality": "high",
+        "last_updated": "2026-04-01"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "45.5",
+        "baseline_daily_usage": "0.500000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "0.500000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "45.000000"
+      },
+      "projection": {
+        "current_on_hand": "8",
+        "allocated_quantity": "12",
+        "current_available": "-4",
+        "safety_threshold": "6.25",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-49.000000",
+        "projected_stock_at_lead_time": null,
+        "minimum_projected_available": "-49.000000",
+        "stockout_date": "2026-06-30",
+        "below_minimum_date": "2026-06-30",
+        "below_safety_date": "2026-06-30"
+      },
+      "inbound_evaluations": [
+        {
+          "po_reference": "PO-SYN-005",
+          "quantity": "30",
+          "status": "confirmed",
+          "observed_receipt_date": null,
+          "effective_receipt_date": null,
+          "eligible": false,
+          "exclusion_reason": "MISSING_RECEIPT_DATE"
+        }
+      ],
+      "recommendation": {
+        "action": "HUMAN REVIEW",
+        "candidate_action": "HUMAN REVIEW",
+        "suggested_quantity": null,
+        "candidate_quantity": null,
+        "reason": "A forecast and positive lead time are required for purchasing calculations.",
+        "quantity_calculation": {
+          "excess_supply_basis": "-4",
+          "excess_threshold": "90.000000"
+        },
+        "lead_time_days": null,
+        "earliest_standard_receipt_date": null,
+        "suggested_order_by": null,
+        "excess_stock": false,
+        "lead_time_risk": null,
+        "review_required": true,
+        "review_flags": [
+          "INCONSISTENT_QUANTITIES",
+          "MISSING_RECEIPT_DATE",
+          "STALE_COUNT",
+          "UNKNOWN_LEAD_TIME"
+        ],
+        "priority": 3,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-001",
+      "description": "Fictional steady coupling",
+      "scenario": "INBOUND PO DELAYED",
+      "observed_facts": {
+        "item_id": "PART-001",
+        "description": "Fictional steady coupling",
+        "category": "components",
+        "current_on_hand": "120",
+        "allocated_quantity": "10",
+        "minimum_stock": "10",
+        "target_stock": "80",
+        "supplier_lead_time_days": 14,
+        "unit_cost": "2.50",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "91",
+        "baseline_daily_usage": "1.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "1.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "90.000000"
+      },
+      "projection": {
+        "current_on_hand": "120",
+        "allocated_quantity": "10",
+        "current_available": "110",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "20.000000",
+        "projected_stock_at_lead_time": "96.000000",
+        "minimum_projected_available": "20.000000",
+        "stockout_date": null,
+        "below_minimum_date": null,
+        "below_safety_date": null
+      },
+      "inbound_evaluations": [
+        {
+          "po_reference": "PO-SYN-003",
+          "quantity": "999",
+          "status": "cancelled",
+          "observed_receipt_date": "2026-07-08",
+          "effective_receipt_date": "2026-07-29",
+          "eligible": false,
+          "exclusion_reason": "status_cancelled"
+        }
+      ],
+      "recommendation": {
+        "action": "NO ACTION",
+        "candidate_action": "NO ACTION",
+        "suggested_quantity": 0,
+        "candidate_quantity": 0,
+        "reason": "The dated projection stays above safety stock and below the excess threshold.",
+        "quantity_calculation": {
+          "excess_supply_basis": "110",
+          "excess_threshold": "180.000000",
+          "effective_target_on_arrival": "80",
+          "target_gap": "0",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "89.000000"
+        },
+        "lead_time_days": 14,
+        "earliest_standard_receipt_date": "2026-07-14",
+        "suggested_order_by": null,
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": false,
+        "review_flags": [],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-002",
+      "description": "Fictional rising-use sleeve",
+      "scenario": "INBOUND PO DELAYED",
+      "observed_facts": {
+        "item_id": "PART-002",
+        "description": "Fictional rising-use sleeve",
+        "category": "components",
+        "current_on_hand": "95",
+        "allocated_quantity": "5",
+        "minimum_stock": "15",
+        "target_stock": "110",
+        "supplier_lead_time_days": 35,
+        "unit_cost": "3.00",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "182",
+        "baseline_daily_usage": "2.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "2.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "180.000000"
+      },
+      "projection": {
+        "current_on_hand": "95",
+        "allocated_quantity": "5",
+        "current_available": "90",
+        "safety_threshold": "18.75",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-90.000000",
+        "projected_stock_at_lead_time": "20.000000",
+        "minimum_projected_available": "-90.000000",
+        "stockout_date": "2026-08-15",
+        "below_minimum_date": "2026-08-07",
+        "below_safety_date": "2026-08-05"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "ORDER",
+        "candidate_action": "ORDER",
+        "suggested_quantity": 90,
+        "candidate_quantity": 90,
+        "reason": "Projected stock falls below safety stock before an order placed at the next review could arrive.",
+        "quantity_calculation": {
+          "excess_supply_basis": "90",
+          "excess_threshold": "360.000000",
+          "effective_target_on_arrival": "110",
+          "target_gap": "90.000000",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "6.000000"
+        },
+        "lead_time_days": 35,
+        "earliest_standard_receipt_date": "2026-08-04",
+        "suggested_order_by": "2026-07-01",
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": false,
+        "review_flags": [],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-003",
+      "description": "Fictional long-lead housing",
+      "scenario": "INBOUND PO DELAYED",
+      "observed_facts": {
+        "item_id": "PART-003",
+        "description": "Fictional long-lead housing",
+        "category": "components",
+        "current_on_hand": "100",
+        "allocated_quantity": "0",
+        "minimum_stock": "20",
+        "target_stock": "180",
+        "supplier_lead_time_days": 40,
+        "unit_cost": "7.50",
+        "criticality": "high",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "273",
+        "baseline_daily_usage": "3.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "3.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "270.000000"
+      },
+      "projection": {
+        "current_on_hand": "100",
+        "allocated_quantity": "0",
+        "current_available": "100",
+        "safety_threshold": "25.00",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-170.000000",
+        "projected_stock_at_lead_time": "-20.000000",
+        "minimum_projected_available": "-170.000000",
+        "stockout_date": "2026-08-03",
+        "below_minimum_date": "2026-07-27",
+        "below_safety_date": "2026-07-26"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "EXPEDITE",
+        "candidate_action": "EXPEDITE",
+        "suggested_quantity": 200,
+        "candidate_quantity": 200,
+        "reason": "Projected stockout precedes a new standard-lead-time receipt; review faster supply or a demand adjustment.",
+        "quantity_calculation": {
+          "excess_supply_basis": "100",
+          "excess_threshold": "540.000000",
+          "effective_target_on_arrival": "180",
+          "target_gap": "200.000000",
+          "bridge_shortfall_before_arrival": "17.000000",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "-41.000000"
+        },
+        "lead_time_days": 40,
+        "earliest_standard_receipt_date": "2026-08-09",
+        "suggested_order_by": "2026-06-16",
+        "excess_stock": false,
+        "lead_time_risk": true,
+        "review_required": true,
+        "review_flags": [],
+        "priority": 3,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-004",
+      "description": "Fictional inbound-covered spacer",
+      "scenario": "INBOUND PO DELAYED",
+      "observed_facts": {
+        "item_id": "PART-004",
+        "description": "Fictional inbound-covered spacer",
+        "category": "components",
+        "current_on_hand": "25",
+        "allocated_quantity": "0",
+        "minimum_stock": "10",
+        "target_stock": "80",
+        "supplier_lead_time_days": 30,
+        "unit_cost": "1.25",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "91",
+        "baseline_daily_usage": "1.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "1.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "90.000000"
+      },
+      "projection": {
+        "current_on_hand": "25",
+        "allocated_quantity": "0",
+        "current_available": "25",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "60",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-5.000000",
+        "projected_stock_at_lead_time": "-5.000000",
+        "minimum_projected_available": "-5.000000",
+        "stockout_date": "2026-07-26",
+        "below_minimum_date": "2026-07-16",
+        "below_safety_date": "2026-07-13"
+      },
+      "inbound_evaluations": [
+        {
+          "po_reference": "PO-SYN-001",
+          "quantity": "60",
+          "status": "confirmed",
+          "observed_receipt_date": "2026-07-10",
+          "effective_receipt_date": "2026-07-31",
+          "eligible": true,
+          "exclusion_reason": null
+        },
+        {
+          "po_reference": "PO-SYN-004",
+          "quantity": "60",
+          "status": "received",
+          "observed_receipt_date": "2026-06-10",
+          "effective_receipt_date": "2026-07-01",
+          "eligible": false,
+          "exclusion_reason": "status_received"
+        }
+      ],
+      "recommendation": {
+        "action": "EXPEDITE",
+        "candidate_action": "EXPEDITE",
+        "suggested_quantity": 85,
+        "candidate_quantity": 85,
+        "reason": "Projected stockout precedes a new standard-lead-time receipt; review faster supply or a demand adjustment.",
+        "quantity_calculation": {
+          "excess_supply_basis": "85",
+          "excess_threshold": "180.000000",
+          "effective_target_on_arrival": "80",
+          "target_gap": "85.000000",
+          "bridge_shortfall_before_arrival": "4.000000",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "-5.000000"
+        },
+        "lead_time_days": 30,
+        "earliest_standard_receipt_date": "2026-07-30",
+        "suggested_order_by": "2026-06-13",
+        "excess_stock": false,
+        "lead_time_risk": true,
+        "review_required": true,
+        "review_flags": [],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-005",
+      "description": "Fictional overdue-supply insert",
+      "scenario": "INBOUND PO DELAYED",
+      "observed_facts": {
+        "item_id": "PART-005",
+        "description": "Fictional overdue-supply insert",
+        "category": "components",
+        "current_on_hand": "10",
+        "allocated_quantity": "0",
+        "minimum_stock": "5",
+        "target_stock": "50",
+        "supplier_lead_time_days": 21,
+        "unit_cost": "4.00",
+        "criticality": "high",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "91",
+        "baseline_daily_usage": "1.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "1.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "90.000000"
+      },
+      "projection": {
+        "current_on_hand": "10",
+        "allocated_quantity": "0",
+        "current_available": "10",
+        "safety_threshold": "6.25",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-80.000000",
+        "projected_stock_at_lead_time": "-11.000000",
+        "minimum_projected_available": "-80.000000",
+        "stockout_date": "2026-07-11",
+        "below_minimum_date": "2026-07-06",
+        "below_safety_date": "2026-07-04"
+      },
+      "inbound_evaluations": [
+        {
+          "po_reference": "PO-SYN-002",
+          "quantity": "40",
+          "status": "confirmed",
+          "observed_receipt_date": "2026-06-25",
+          "effective_receipt_date": "2026-07-16",
+          "eligible": false,
+          "exclusion_reason": "OVERDUE_PURCHASE_ORDER"
+        }
+      ],
+      "recommendation": {
+        "action": "HUMAN REVIEW",
+        "candidate_action": "EXPEDITE",
+        "suggested_quantity": null,
+        "candidate_quantity": 61,
+        "reason": "Projected stockout precedes a new standard-lead-time receipt; review faster supply or a demand adjustment.",
+        "quantity_calculation": {
+          "excess_supply_basis": "10",
+          "excess_threshold": "180.000000",
+          "effective_target_on_arrival": "50",
+          "target_gap": "61.000000",
+          "bridge_shortfall_before_arrival": "10.000000",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "-18.000000"
+        },
+        "lead_time_days": 21,
+        "earliest_standard_receipt_date": "2026-07-21",
+        "suggested_order_by": "2026-06-13",
+        "excess_stock": false,
+        "lead_time_risk": true,
+        "review_required": true,
+        "review_flags": [
+          "OVERDUE_PURCHASE_ORDER"
+        ],
+        "priority": 3,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-006",
+      "description": "Fictional occasional-use cap",
+      "scenario": "INBOUND PO DELAYED",
+      "observed_facts": {
+        "item_id": "PART-006",
+        "description": "Fictional occasional-use cap",
+        "category": "components",
+        "current_on_hand": "15",
+        "allocated_quantity": "0",
+        "minimum_stock": "2",
+        "target_stock": "30",
+        "supplier_lead_time_days": 14,
+        "unit_cost": "0.80",
+        "criticality": "low",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "18",
+        "baseline_daily_usage": "0.197802",
+        "data_quality": "low",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [
+          "INTERMITTENT_DEMAND",
+          "UNCERTAIN_FORECAST"
+        ],
+        "forecast_daily_usage": "0.197802",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "17.802180"
+      },
+      "projection": {
+        "current_on_hand": "15",
+        "allocated_quantity": "0",
+        "current_available": "15",
+        "safety_threshold": "2.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-2.802180",
+        "projected_stock_at_lead_time": "12.230772",
+        "minimum_projected_available": "-2.802180",
+        "stockout_date": "2026-09-14",
+        "below_minimum_date": "2026-09-04",
+        "below_safety_date": "2026-09-02"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "HUMAN REVIEW",
+        "candidate_action": "MONITOR",
+        "suggested_quantity": null,
+        "candidate_quantity": 0,
+        "reason": "A later safety-stock crossing is projected, beyond the current lead-time and review-cycle trigger.",
+        "quantity_calculation": {
+          "excess_supply_basis": "15",
+          "excess_threshold": "45.0",
+          "effective_target_on_arrival": "30",
+          "target_gap": "17.769228",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "10.846158"
+        },
+        "lead_time_days": 14,
+        "earliest_standard_receipt_date": "2026-07-14",
+        "suggested_order_by": "2026-08-19",
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": true,
+        "review_flags": [
+          "INTERMITTENT_DEMAND",
+          "UNCERTAIN_FORECAST"
+        ],
+        "priority": 1,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-007",
+      "description": "Fictional spike-demand clip",
+      "scenario": "INBOUND PO DELAYED",
+      "observed_facts": {
+        "item_id": "PART-007",
+        "description": "Fictional spike-demand clip",
+        "category": "components",
+        "current_on_hand": "60",
+        "allocated_quantity": "0",
+        "minimum_stock": "10",
+        "target_stock": "100",
+        "supplier_lead_time_days": 21,
+        "unit_cost": "1.50",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "241",
+        "baseline_daily_usage": "2.648352",
+        "data_quality": "low",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [
+          "DEMAND_ANOMALY",
+          "UNCERTAIN_FORECAST"
+        ],
+        "forecast_daily_usage": "2.648352",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "238.351680"
+      },
+      "projection": {
+        "current_on_hand": "60",
+        "allocated_quantity": "0",
+        "current_available": "60",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-178.351680",
+        "projected_stock_at_lead_time": "4.384608",
+        "minimum_projected_available": "-178.351680",
+        "stockout_date": "2026-07-23",
+        "below_minimum_date": "2026-07-19",
+        "below_safety_date": "2026-07-18"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "HUMAN REVIEW",
+        "candidate_action": "ORDER",
+        "suggested_quantity": null,
+        "candidate_quantity": 96,
+        "reason": "Projected stock falls below safety stock before an order placed at the next review could arrive.",
+        "quantity_calculation": {
+          "excess_supply_basis": "60",
+          "excess_threshold": "476.703360",
+          "effective_target_on_arrival": "100",
+          "target_gap": "95.615392",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "-14.153856"
+        },
+        "lead_time_days": 21,
+        "earliest_standard_receipt_date": "2026-07-21",
+        "suggested_order_by": "2026-06-27",
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": true,
+        "review_flags": [
+          "DEMAND_ANOMALY",
+          "UNCERTAIN_FORECAST"
+        ],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-008",
+      "description": "Fictional declining-use bracket",
+      "scenario": "INBOUND PO DELAYED",
+      "observed_facts": {
+        "item_id": "PART-008",
+        "description": "Fictional declining-use bracket",
+        "category": "components",
+        "current_on_hand": "500",
+        "allocated_quantity": "0",
+        "minimum_stock": "10",
+        "target_stock": "60",
+        "supplier_lead_time_days": 14,
+        "unit_cost": "6.00",
+        "criticality": "low",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "106",
+        "baseline_daily_usage": "1.164835",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "1.164835",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "104.835150"
+      },
+      "projection": {
+        "current_on_hand": "500",
+        "allocated_quantity": "0",
+        "current_available": "500",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "395.164850",
+        "projected_stock_at_lead_time": "483.692310",
+        "minimum_projected_available": "395.164850",
+        "stockout_date": null,
+        "below_minimum_date": null,
+        "below_safety_date": null
+      },
+      "inbound_evaluations": [
+        {
+          "po_reference": "PO-SYN-006",
+          "quantity": "100",
+          "status": "unconfirmed",
+          "observed_receipt_date": "2026-07-15",
+          "effective_receipt_date": "2026-08-05",
+          "eligible": false,
+          "exclusion_reason": "status_unconfirmed"
+        }
+      ],
+      "recommendation": {
+        "action": "REDUCE / REVIEW EXCESS",
+        "candidate_action": "REDUCE / REVIEW EXCESS",
+        "suggested_quantity": 0,
+        "candidate_quantity": 0,
+        "reason": "Available stock plus eligible horizon inbound exceeds the documented excess threshold; review future buying, not automatic disposal.",
+        "quantity_calculation": {
+          "excess_supply_basis": "500",
+          "excess_threshold": "209.670300",
+          "effective_target_on_arrival": "60",
+          "target_gap": "0",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "475.538465"
+        },
+        "lead_time_days": 14,
+        "earliest_standard_receipt_date": "2026-07-14",
+        "suggested_order_by": null,
+        "excess_stock": true,
+        "lead_time_risk": false,
+        "review_required": true,
+        "review_flags": [],
+        "priority": 1,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-009",
+      "description": "Fictional new-item bushing",
+      "scenario": "INBOUND PO DELAYED",
+      "observed_facts": {
+        "item_id": "PART-009",
+        "description": "Fictional new-item bushing",
+        "category": "components",
+        "current_on_hand": "20",
+        "allocated_quantity": "0",
+        "minimum_stock": "5",
+        "target_stock": "50",
+        "supplier_lead_time_days": 14,
+        "unit_cost": "2.00",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-06-01"
+        ],
+        "observed_days": 30,
+        "observed_usage": "30",
+        "baseline_daily_usage": "1.000000",
+        "data_quality": "low",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [
+          "INSUFFICIENT_HISTORY",
+          "UNCERTAIN_FORECAST"
+        ],
+        "forecast_daily_usage": "1.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "90.000000"
+      },
+      "projection": {
+        "current_on_hand": "20",
+        "allocated_quantity": "0",
+        "current_available": "20",
+        "safety_threshold": "6.25",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-70.000000",
+        "projected_stock_at_lead_time": "6.000000",
+        "minimum_projected_available": "-70.000000",
+        "stockout_date": "2026-07-21",
+        "below_minimum_date": "2026-07-16",
+        "below_safety_date": "2026-07-14"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "HUMAN REVIEW",
+        "candidate_action": "ORDER",
+        "suggested_quantity": null,
+        "candidate_quantity": 44,
+        "reason": "Projected stock falls below safety stock before an order placed at the next review could arrive.",
+        "quantity_calculation": {
+          "excess_supply_basis": "20",
+          "excess_threshold": "180.000000",
+          "effective_target_on_arrival": "50",
+          "target_gap": "44.000000",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "-1.000000"
+        },
+        "lead_time_days": 14,
+        "earliest_standard_receipt_date": "2026-07-14",
+        "suggested_order_by": "2026-06-30",
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": true,
+        "review_flags": [
+          "INSUFFICIENT_HISTORY",
+          "UNCERTAIN_FORECAST"
+        ],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-010",
+      "description": "Fictional critical fixture",
+      "scenario": "INBOUND PO DELAYED",
+      "observed_facts": {
+        "item_id": "PART-010",
+        "description": "Fictional critical fixture",
+        "category": "components",
+        "current_on_hand": "25",
+        "allocated_quantity": "0",
+        "minimum_stock": "10",
+        "target_stock": "80",
+        "supplier_lead_time_days": 14,
+        "unit_cost": "9.00",
+        "criticality": "critical",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "182",
+        "baseline_daily_usage": "2.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "2.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "180.000000"
+      },
+      "projection": {
+        "current_on_hand": "25",
+        "allocated_quantity": "0",
+        "current_available": "25",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-155.000000",
+        "projected_stock_at_lead_time": "-3.000000",
+        "minimum_projected_available": "-155.000000",
+        "stockout_date": "2026-07-13",
+        "below_minimum_date": "2026-07-08",
+        "below_safety_date": "2026-07-07"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "EXPEDITE",
+        "candidate_action": "EXPEDITE",
+        "suggested_quantity": 83,
+        "candidate_quantity": 83,
+        "reason": "Projected stockout precedes a new standard-lead-time receipt; review faster supply or a demand adjustment.",
+        "quantity_calculation": {
+          "excess_supply_basis": "25",
+          "excess_threshold": "360.000000",
+          "effective_target_on_arrival": "80",
+          "target_gap": "83.000000",
+          "bridge_shortfall_before_arrival": "1.000000",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "-17.000000"
+        },
+        "lead_time_days": 14,
+        "earliest_standard_receipt_date": "2026-07-14",
+        "suggested_order_by": "2026-06-23",
+        "excess_stock": false,
+        "lead_time_risk": true,
+        "review_required": true,
+        "review_flags": [],
+        "priority": 4,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-011",
+      "description": "Fictional demand-sensitive ring",
+      "scenario": "INBOUND PO DELAYED",
+      "observed_facts": {
+        "item_id": "PART-011",
+        "description": "Fictional demand-sensitive ring",
+        "category": "components",
+        "current_on_hand": "52",
+        "allocated_quantity": "0",
+        "minimum_stock": "10",
+        "target_stock": "60",
+        "supplier_lead_time_days": 30,
+        "unit_cost": "2.25",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "91",
+        "baseline_daily_usage": "1.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "1.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "90.000000"
+      },
+      "projection": {
+        "current_on_hand": "52",
+        "allocated_quantity": "0",
+        "current_available": "52",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-38.000000",
+        "projected_stock_at_lead_time": "22.000000",
+        "minimum_projected_available": "-38.000000",
+        "stockout_date": "2026-08-22",
+        "below_minimum_date": "2026-08-12",
+        "below_safety_date": "2026-08-09"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "MONITOR",
+        "candidate_action": "MONITOR",
+        "suggested_quantity": 0,
+        "candidate_quantity": 0,
+        "reason": "A later safety-stock crossing is projected, beyond the current lead-time and review-cycle trigger.",
+        "quantity_calculation": {
+          "excess_supply_basis": "52",
+          "excess_threshold": "180.000000",
+          "effective_target_on_arrival": "60",
+          "target_gap": "38.000000",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "15.000000"
+        },
+        "lead_time_days": 30,
+        "earliest_standard_receipt_date": "2026-07-30",
+        "suggested_order_by": "2026-07-10",
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": false,
+        "review_flags": [],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "PART-012",
+      "description": "Fictional lead-sensitive liner",
+      "scenario": "INBOUND PO DELAYED",
+      "observed_facts": {
+        "item_id": "PART-012",
+        "description": "Fictional lead-sensitive liner",
+        "category": "components",
+        "current_on_hand": "60",
+        "allocated_quantity": "0",
+        "minimum_stock": "10",
+        "target_stock": "70",
+        "supplier_lead_time_days": 35,
+        "unit_cost": "3.50",
+        "criticality": "normal",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "91",
+        "baseline_daily_usage": "1.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "1.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "90.000000"
+      },
+      "projection": {
+        "current_on_hand": "60",
+        "allocated_quantity": "0",
+        "current_available": "60",
+        "safety_threshold": "12.50",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-30.000000",
+        "projected_stock_at_lead_time": "25.000000",
+        "minimum_projected_available": "-30.000000",
+        "stockout_date": "2026-08-30",
+        "below_minimum_date": "2026-08-20",
+        "below_safety_date": "2026-08-17"
+      },
+      "inbound_evaluations": [],
+      "recommendation": {
+        "action": "MONITOR",
+        "candidate_action": "MONITOR",
+        "suggested_quantity": 0,
+        "candidate_quantity": 0,
+        "reason": "A later safety-stock crossing is projected, beyond the current lead-time and review-cycle trigger.",
+        "quantity_calculation": {
+          "excess_supply_basis": "60",
+          "excess_threshold": "180.000000",
+          "effective_target_on_arrival": "70",
+          "target_gap": "45.000000",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "18.000000"
+        },
+        "lead_time_days": 35,
+        "earliest_standard_receipt_date": "2026-08-04",
+        "suggested_order_by": "2026-07-13",
+        "excess_stock": false,
+        "lead_time_risk": false,
+        "review_required": false,
+        "review_flags": [],
+        "priority": 2,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "KIT-001",
+      "description": "Fictional dormant assembly kit",
+      "scenario": "INBOUND PO DELAYED",
+      "observed_facts": {
+        "item_id": "KIT-001",
+        "description": "Fictional dormant assembly kit",
+        "category": "kits",
+        "current_on_hand": "90",
+        "allocated_quantity": "0",
+        "minimum_stock": "0",
+        "target_stock": "30",
+        "supplier_lead_time_days": 14,
+        "unit_cost": "12.00",
+        "criticality": "low",
+        "last_updated": "2026-06-30"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "0",
+        "baseline_daily_usage": "0.000000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "0.000000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "0.000000"
+      },
+      "projection": {
+        "current_on_hand": "90",
+        "allocated_quantity": "0",
+        "current_available": "90",
+        "safety_threshold": "0.00",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "30",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "120.000000",
+        "projected_stock_at_lead_time": "90.000000",
+        "minimum_projected_available": "90",
+        "stockout_date": null,
+        "below_minimum_date": null,
+        "below_safety_date": null
+      },
+      "inbound_evaluations": [
+        {
+          "po_reference": "PO-SYN-007",
+          "quantity": "30",
+          "status": "confirmed",
+          "observed_receipt_date": "2026-07-12",
+          "effective_receipt_date": "2026-08-02",
+          "eligible": true,
+          "exclusion_reason": null
+        }
+      ],
+      "recommendation": {
+        "action": "REDUCE / REVIEW EXCESS",
+        "candidate_action": "REDUCE / REVIEW EXCESS",
+        "suggested_quantity": 0,
+        "candidate_quantity": 0,
+        "reason": "Available stock plus eligible horizon inbound exceeds the documented excess threshold; review future buying, not automatic disposal.",
+        "quantity_calculation": {
+          "excess_supply_basis": "120",
+          "excess_threshold": "45.0",
+          "effective_target_on_arrival": "30",
+          "target_gap": "0",
+          "bridge_shortfall_before_arrival": "0",
+          "rounding": "ceil to whole units",
+          "review_cycle_days": 7,
+          "minimum_until_next_review_arrival": "90"
+        },
+        "lead_time_days": 14,
+        "earliest_standard_receipt_date": "2026-07-14",
+        "suggested_order_by": null,
+        "excess_stock": true,
+        "lead_time_risk": false,
+        "review_required": true,
+        "review_flags": [],
+        "priority": 1,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    },
+    {
+      "item_id": "KIT-002",
+      "description": "Fictional incomplete-count kit",
+      "scenario": "INBOUND PO DELAYED",
+      "observed_facts": {
+        "item_id": "KIT-002",
+        "description": "Fictional incomplete-count kit",
+        "category": "kits",
+        "current_on_hand": "8",
+        "allocated_quantity": "12",
+        "minimum_stock": "5",
+        "target_stock": "40",
+        "supplier_lead_time_days": null,
+        "unit_cost": null,
+        "criticality": "high",
+        "last_updated": "2026-04-01"
+      },
+      "forecast": {
+        "forecast_method": "calendar_day_moving_average",
+        "history_window_months": 3,
+        "expected_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_months": [
+          "2026-04-01",
+          "2026-05-01",
+          "2026-06-01"
+        ],
+        "observed_days": 91,
+        "observed_usage": "45.5",
+        "baseline_daily_usage": "0.500000",
+        "data_quality": "adequate_history",
+        "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
+        "review_flags": [],
+        "forecast_daily_usage": "0.500000",
+        "forecast_period_days": 90,
+        "forecast_period_usage": "45.000000"
+      },
+      "projection": {
+        "current_on_hand": "8",
+        "allocated_quantity": "12",
+        "current_available": "-4",
+        "safety_threshold": "6.25",
+        "horizon_days": 90,
+        "horizon_date": "2026-09-28",
+        "confirmed_inbound_within_horizon": "0",
+        "confirmed_inbound_by_lead_time": "0",
+        "projected_available_at_horizon": "-49.000000",
+        "projected_stock_at_lead_time": null,
+        "minimum_projected_available": "-49.000000",
+        "stockout_date": "2026-06-30",
+        "below_minimum_date": "2026-06-30",
+        "below_safety_date": "2026-06-30"
+      },
+      "inbound_evaluations": [
+        {
+          "po_reference": "PO-SYN-005",
+          "quantity": "30",
+          "status": "confirmed",
+          "observed_receipt_date": null,
+          "effective_receipt_date": null,
+          "eligible": false,
+          "exclusion_reason": "MISSING_RECEIPT_DATE"
+        }
+      ],
+      "recommendation": {
+        "action": "HUMAN REVIEW",
+        "candidate_action": "HUMAN REVIEW",
+        "suggested_quantity": null,
+        "candidate_quantity": null,
+        "reason": "A forecast and positive lead time are required for purchasing calculations.",
+        "quantity_calculation": {
+          "excess_supply_basis": "-4",
+          "excess_threshold": "90.000000"
+        },
+        "lead_time_days": null,
+        "earliest_standard_receipt_date": null,
+        "suggested_order_by": null,
+        "excess_stock": false,
+        "lead_time_risk": null,
+        "review_required": true,
+        "review_flags": [
+          "INCONSISTENT_QUANTITIES",
+          "MISSING_RECEIPT_DATE",
+          "STALE_COUNT",
+          "UNKNOWN_LEAD_TIME"
+        ],
+        "priority": 3,
+        "human_decision": {
+          "status": "not_recorded",
+          "approved_quantity": null
+        }
+      }
+    }
+  ]
+}

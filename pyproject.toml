@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "operations-forecasting-system"
+version = "0.1.0"
+description = "Synthetic operations planning with explainable forecasts and purchasing recommendations"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+operations-forecast-demo = "operations_forecasting.demo:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

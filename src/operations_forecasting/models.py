@@ -37,6 +37,28 @@ class PurchaseOrder:
 
 
 @dataclass(frozen=True)
+class Order:
+    order_id: str
+    order_date: date
+    customer: str
+    category: str
+    item_id: str
+    quantity: Decimal
+    unit_price: Decimal
+    status: str
+    requested_ship_date: date | None
+
+
+@dataclass(frozen=True)
+class Shipment:
+    shipment_id: str
+    order_id: str
+    item_id: str
+    ship_date: date
+    quantity: Decimal
+
+
+@dataclass(frozen=True)
 class Scenario:
     name: str = "BASELINE"
     demand_multiplier: Decimal = Decimal("1")
@@ -55,3 +77,7 @@ class DataSet:
     items: tuple[Item, ...]
     usage: tuple[Usage, ...]
     purchase_orders: tuple[PurchaseOrder, ...]
+    orders: tuple[Order, ...] = ()
+    shipments: tuple[Shipment, ...] = ()
+    actuals_through: date | None = None
+    planning_as_of: date | None = None

@@ -5,10 +5,10 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "operations-forecasting-system"
 version = "0.1.0"
-description = "Synthetic operations planning with explainable forecasts and purchasing recommendations"
+description = "Clean-room logistics forecasting and operational analysis with auditable inventory recommendations"
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = ["openpyxl>=3.1.5"]
 
 [project.scripts]
 operations-forecast-demo = "operations_forecasting.demo:main"

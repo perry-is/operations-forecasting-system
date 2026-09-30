@@ -1,86 +1,78 @@
 # Operations Forecasting System
 
-An explainable operations-planning prototype that turns inventory, usage history, and dated inbound supply into forecasts, risk dates, and purchasing proposals. Every result separates source facts, calculated projections, recommendations, and human decisions.
+A clean-room reconstruction and extension of an Excel-based logistics forecasting and analysis workflow I built and used in operational work.
 
-This project is a clean-room reconstruction and extension of a logistics forecasting workflow I originally built and used in an operational environment. The original Excel-based system was consulted on roughly ten occasions to examine inventory demand, shipping/order trends, sales progression, recurring patterns, and rough forward-looking behavior, particularly when operational questions or assumptions needed to be checked against available data.
+The original workflow was consulted roughly ten times to examine inventory demand, order and shipping trends, sales progression, recurring patterns, and rough forward-looking behavior. I used it as evidence when operational questions arose or an assumption needed to be checked against available data. There are no formal outcome metrics, so this project makes no claims about forecast accuracy, cost savings, reduced inventory, prevented stockouts, or productivity gains.
 
-The original tool provided an evidence layer for human decisions. There are no formal measured outcome metrics: this repository makes no claims about improved forecast accuracy, reduced costs, prevented stockouts, or measured productivity gains. The public implementation replaces all real operational data with synthetic records and makes selected planning rules reproducible, inspectable, and testable.
+## How the system evolved
 
-## The operational problem
+### Original workflow — actually used
 
-A stock count can look healthy while demand during replenishment lead time makes it risky. Conversely, ignoring a confirmed incoming purchase order can create an unnecessary buying recommendation. Weak history, stale counts, and unreliable receipt dates need to remain visible when interpreting either result.
-
-The prototype helps a planner ask what may run out, when it may run out, what quantity might be needed, and which assumptions deserve review. It is decision support: it creates no purchase orders, connects to no ERP, and records no approval on a person's behalf.
-
-## Original use, public rebuild, and future design
-
-| Stage | Scope and status |
-|---|---|
-| Original workflow — actually used | Operational Excel data, a separate forecast/analysis workbook, trend and recurring-pattern analysis, inventory-demand visibility, sales/order/shipping progression, and human review. A practical tool used repeatedly, not an enterprise platform or statistically validated model. |
-| Public implementation — included here | Invented CSV records, validation and normalization, Python demand/inventory calculations, dated PO handling, explicit review flags, four scenarios, inspectable recommendation/audit artifacts, tests, and CI. |
-| Public rebuild roadmap — not yet implemented | Excel input/output adapters, automatic forecast-history preservation, forecast-versus-actual tracking, and a persistent review queue. This version's report exposes review flags; it is not a review-management application. |
-| Future authorized intake — design only | Controlled extraction from authorized documents/systems, proposed facts with evidence and uncertainty, conversational human verification, and approved canonical records reusable across operational workflows. This AI-assisted layer did not exist in the original implementation and is not called by this demo. |
-
-The portfolio story is an operational need identified and addressed with a tool that was actually used, followed by a cleaner public reconstruction and a responsible modernization plan. See [project history and evolution](docs/project-history.md) for the boundaries and diagrams.
-
-## Pipeline
-
-```mermaid
-flowchart TD
-    I[Synthetic inventory snapshot] --> V[Validation and normalization]
-    U[Synthetic usage history] --> V
-    P[Synthetic PO records] --> V
-    S[Scenario assumptions] --> F
-    V --> F[Transparent demand forecast]
-    F --> X[Dated inventory projection]
-    X --> L[Lead-time and risk analysis]
-    L --> R[Explainable recommendation]
-    R --> Q[Review flags and tentative candidates]
-    R --> C[Scenario comparison]
-    Q --> C
-    C --> O[Planning report and recommendation JSON]
-    O --> A[Audit JSONL]
-    A --> H[Human decision outside the prototype]
+```text
+Human → Operational Excel → Forecast / Analysis Excel → Human operational decision
 ```
 
-Each scenario reuses the same immutable input records. Results retain the observed snapshot and the scenario assumptions separately. [Architecture details](docs/architecture.md) map the modules to these stages.
+The Excel workflow was a practical evidence layer that supported human analysis. It was not enterprise forecasting software or a statistically validated forecasting model.
 
-## How calculations become recommendations
+### Public clean-room rebuild — implemented here
 
-**Forecast:** usage across the last three complete calendar months divided by their actual observed day counts. Missing months are not silently filled with zeros. Daily rates are rounded to six decimal places; the forecast period is normally 90 days. Sparse history, a recent spike, or intermittent demand gets explicit flags. `adequate_history` describes input coverage, not statistical confidence or an accuracy guarantee.
+```text
+Human → Synthetic operational Excel → Python validation, analysis, and forecasting
+      → Generated forecast Excel → Human review and operational decision
+```
 
-**Inventory:** current on hand is the count; current available subtracts allocations. Projected available adds eligible confirmed supply on its effective receipt date and subtracts modeled daily demand. The projection separately reports the end-of-horizon value and stock at the lead-time horizon. Incoming stock never becomes current on hand in these calculations.
+The public demo reads [the synthetic input workbook](examples/logistics_operations_input.xlsx) in read-only mode and creates [the generated analysis workbook](generated_example/logistics_forecast.xlsx). Python sits between them. Rerunning the demo never writes into or replaces the human-maintained input workbook.
 
-**Inbound supply:** POs have their own IDs, quantities, dates, and statuses. Only confirmed, positive, future-dated receipts are eligible. Overdue or undated confirmed POs are excluded and flagged. Received, cancelled, and unconfirmed records are not credited. Duplicate PO references stop ingestion. There is no second incoming-quantity field to count the same supply twice.
+The rebuild adds reproducible validation and normalization, weekly and monthly analysis, customer/category patterns, inventory-demand analysis, explainable projections, scenarios, review states, an append-only forecast history, forecast-versus-actual comparisons, tests, CI, and an audit trail. Every example is fictional.
 
-**Risk:** daily balances produce the first estimated date strictly below zero, minimum stock, and a safety threshold of `minimum_stock × 1.25`. A new order is assumed to arrive at the start of its lead-time date; demand is deducted at day end. Risk dates describe the projection before any proposed new purchase.
+### Future design extension — not part of the original workflow or runnable demo
 
-**Recommendation:** use `EXPEDITE` when modeled shortage precedes a standard new receipt. Use `ORDER` when projected stock falls below safety before an order placed at the next seven-day review could arrive. The order quantity is the ceiling of the target-stock gap at receipt; an expedite candidate also covers any earlier bridge shortfall. The effective target is at least safety stock plus seven days of usage. All quantity inputs are retained in the explanation.
+```text
+Authorized invoice / receipt / order / shipping document
+  → controlled extraction
+  → proposed facts with evidence and uncertainty
+  → conversational human review: approve, correct, or reject
+  → approved canonical record
+  → logistics and/or bookkeeping workflows
+```
 
-**Excess:** available stock plus eligible horizon inbound above the greater of `1.5 × target_stock` and twice projected horizon demand generates an excess flag. The proposed response is a review of future buying, never automatic disposal. Later risks produce `MONITOR`; a healthy projection produces `NO ACTION`.
+The repository includes deterministic proposal/approval interface types to make this boundary testable. It does not implement document extraction, AI, OCR, or a canonical operational database. A proposed intake record cannot pass the canonical admission function until a human decision creates an approved or corrected record.
 
-**Human review:** data-quality flags change the action to `HUMAN REVIEW` and withhold the suggested quantity. A separate candidate action/quantity may show the tentative calculation for investigation. Expedite and excess recommendations also require review. Every human-decision field starts as `not_recorded`; recommendations never equal approvals. Criticality changes priority, not demand arithmetic.
+See [project history](docs/project-history.md) for a fuller account of what was used, what is rebuilt, and what remains a design extension.
 
-See [forecasting and planning formulas](docs/forecasting-method.md) and [decision boundaries](docs/decision-boundaries.md).
+## What the public system analyzes
 
-## Synthetic scenario
+The input workbook has five source sheets:
 
-The fictional snapshot closes on June 30, 2026. Fourteen items, 79 monthly usage rows spanning January–June, and seven invented PO records cover stable, rising, intermittent, spiking, declining, sparse, and zero-recent-demand patterns.
+- `README` supplies the planning snapshot and actuals cutoff.
+- `Orders` contains fictional order dates, customers, categories, item IDs, quantities, values, and status.
+- `Shipments` contains order-linked shipped quantities and dates.
+- `Inventory` contains the snapshot, allocations, minimum and target levels, lead times, criticality, and synthetic unit costs.
+- `Operational_Updates` contains dated inbound purchase orders.
 
-Examples of explainable behavior:
+The generated workbook produces weekly order/shipping progression, monthly progression, customer/category patterns, inventory demand by month, three monthly forecast periods, preserved forecast snapshots, forecast-versus-actual scores, inventory scenarios, recommendations, a review queue, and an audit view. See [the workbook map](docs/architecture.md).
 
-- `PART-001`: 120 on hand minus 10 allocated gives 110 available; usage of one per day leaves 20 at day 90. No action.
-- `PART-003`: 100 currently available appears substantial, but three units/day over a 40-day lead time projects −20. Expedite candidate: 200 units to meet the modeled arrival target.
-- `PART-004`: a confirmed 60-unit receipt prevents an immediate reorder. Delaying that receipt by 21 days exposes a July 26 stockout and an expedite candidate.
-- `PART-011`: a 20% demand increase changes monitoring to a 44-unit order proposal.
-- `PART-012`: adding 14 lead-time days changes monitoring to a 59-unit order proposal.
-- Sparse history, an overdue PO, a stale/overallocated count, and unknown lead time produce visible review cases.
+## Forecasting and decision boundaries
 
-These are constructed examples of rule behavior, not evidence of outcomes achieved in the original workplace tool. All descriptions, quantities, prices, references, and dates are invented.
+The baseline forecast uses a transparent calendar-day moving average over up to three complete months before the planning date. Missing history is not silently filled with zero. Sparse history, demand spikes, and intermittent patterns receive review flags. The forecast is deterministic and is not an accuracy probability.
+
+Inventory logic keeps distinct values for on-hand stock, available stock after allocations, eligible dated inbound supply, projected stock at lead time, and projected stock over the planning horizon. A confirmed inbound PO can prevent a false reorder. An overdue or undated PO is flagged and withheld from projected availability. Lead-time demand may create an expedite recommendation even when current inventory looks healthy.
+
+Recommendations remain proposals. They include the relevant facts, forecast, inbound evaluations, projected inventory, reason, and review flags. Scenarios vary demand, lead time, or inbound timing without changing source records. The system does not place orders or connect to an ERP.
+
+## Forecast history and forecast versus actual
+
+For each item and target month, the demo assigns a stable forecast ID based on the planning date. It saves the first generated forecast in `generated_example/forecast_history.jsonl`; later runs with the same ID retain that saved forecast. If changed source data would produce a different value for an existing ID, the system keeps the original snapshot, shows the retained value in `Forecast`, and adds a conflict to `Review_Queue`. A new planning date creates new snapshots.
+
+When a full target month is available by the input workbook's actuals cutoff, the comparison includes forecast, actual, absolute error, percentage error when the actual is nonzero, and direction. “Over” means forecast exceeded actual; “under” means forecast was below actual. Percentage error is `absolute error ÷ |actual|` and is blank when actual demand is zero. The workbook includes both history and comparison sheets so prior forecasts remain distinguishable from later actuals.
+
+## Synthetic demo result
+
+With the checked-in synthetic workbook, the demo reads 14 inventory items, 242 fictional order rows, and 242 linked shipment rows. It writes a 14-sheet forecast workbook, maintains 42 monthly forecast snapshots, and scores 42 completed forecast periods against synthetic actuals through September 2026. These figures describe the constructed demo only, not outcomes from the original workflow.
 
 ## Run locally
 
-Python 3.11+; no runtime dependencies, credentials, model, or network calls. Package installation may download normal build tooling.
+Python 3.11+ is required. The demo uses `openpyxl` to read and write `.xlsx` files. It makes no model/API calls and needs no network once package dependencies are installed.
 
 ```sh
 python -m pip install -e .
@@ -88,36 +80,41 @@ python -m operations_forecasting.demo
 python -m unittest discover -s tests -v
 ```
 
-An optional virtual environment is recommended. The `operations-forecast-demo` entry point runs the same demo. Run from this editable source checkout so the synthetic example files are available.
+The console entry point `operations-forecast-demo` runs the same workflow. Optional arguments select the input workbook, output directory, history file, forecast horizon, safety factor, and number of forecast months:
 
 ```sh
-operations-forecast-demo --output-dir generated_example --horizon-days 90 --safety-factor 1.25
+operations-forecast-demo --input-workbook examples/logistics_operations_input.xlsx --output-dir generated_example --forecast-periods 3
 ```
 
-The demo generates four scenarios: `BASELINE`, `DEMAND +20%`, `LEAD TIME +14 DAYS`, and `INBOUND PO DELAYED` (21-day delay). Scenario dates and quantities change in the projection without altering source records. Default output files are reproducible and overwritten on rerun; use a separate output directory to retain a snapshot. Automatic forecast-history management and forecast-versus-actual evaluation remain planned improvements.
+The demo overwrites generated reports and the generated analysis workbook. Forecast history is preserved by stable forecast ID. The source workbook is opened read-only and left intact.
 
-## Outputs and audit trail
+## Generated workbook sheets
 
-- [Planning report](generated_example/planning_report.md): baseline totals, item-level actions, review flags, and scenario comparisons.
-- [Recommendations](generated_example/recommendations.json): all 56 item/scenario records, including observed facts, forecasts, dated risks, inbound decisions, reasons, and proposed quantities.
-- [Audit trail](generated_example/audit.jsonl): one explanation per item/scenario, including source usage/PO records, calculation policy, scenario assumptions, results, and unrecorded human decisions.
+`Dashboard`, `README`, `Clean_Data`, `Weekly_Analysis`, `Monthly_Analysis`, `Customer_Category_Analysis`, `Inventory_Demand`, `Forecast`, `Forecast_History`, `Forecast_vs_Actual`, `Scenario_Analysis`, `Recommendations`, `Review_Queue`, and `Audit`.
 
-Decimal quantities and costs are serialized as decimal strings to preserve their representation. The purchase-value total uses fictional currency units and excludes withheld human-review candidates and unpriced items. The report counts unpriced actionable items separately.
+Other generated files include `recommendations.json`, `planning_report.md`, and `audit.jsonl`. The input workbook is source data; generated files are analysis outputs.
 
-## Repository map
+## Limitations
+
+- Every workbook row, identifier, date, price, and quantity is synthetic.
+- The forecast is a simple operational baseline, not a statistically validated model.
+- The order history is simplified and does not model cancellations beyond excluding them, returns, partial allocations, seasonality, promotions, capacity, or supplier constraints.
+- Forecast history is a local JSONL file. It is not tamper-proof and has no multi-user locking or database migration support.
+- The generated workbook is a report artifact, not an editable operational system of record.
+- Human decisions are not captured as approvals in this prototype.
+- Future authorized document intake is represented only by type boundaries. No real source documents, extraction, AI provider, OCR, or cross-workflow fact store is included.
+- This is a portfolio prototype, not production planning software. A human planner must verify source data and decisions.
+
+## Repository layout
 
 ```text
-src/operations_forecasting/  Immutable models, CSV ingest, forecasts, inventory, purchasing, scenarios, reporting
-examples/                   Three entirely synthetic CSV fixtures
-generated_example/          Reproducible report, recommendations, and audit trail
-tests/                      Focused unittest suite including the CLI workflow
-docs/                       Architecture, history, methods, decision and privacy boundaries
-diagrams/                   Mermaid pipeline source
-.github/workflows/tests.yml  Ubuntu / Python 3.11 tests on push and pull request
+examples/logistics_operations_input.xlsx   synthetic human-maintained source
+generated_example/logistics_forecast.xlsx  generated analysis workbook
+generated_example/forecast_history.jsonl   preserved monthly forecast snapshots
+src/operations_forecasting/                ingestion, analysis, forecast, and outputs
+tests/                                     unittest coverage
+docs/                                      architecture, history, and decision limits
+diagrams/                                  system flow
 ```
 
-## Limits and privacy
-
-This is a portfolio prototype, not production purchasing software. It assumes constant daily future demand, fixed lead times, and timely confirmed receipts. It does not model seasonality, service-level probabilities, production dependencies, pack sizes, minimum order quantities, working-day calendars, budgets, supplier capacity, or purchase execution. Negative projections represent modeled unmet demand, without a separate lost-sales/backorder policy.
-
-No original workbook, employer/customer/supplier identity, private process, real price, part number, PO, or operational data was inspected or copied. The original-use account comes from the author's confirmed history; the public rules and fixtures were newly constructed for this project. See [privacy boundaries](docs/privacy-boundaries.md).
+The examples and generated reports are fictional and do not contain employer, customer, supplier, or proprietary operational data.

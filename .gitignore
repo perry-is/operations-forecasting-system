@@ -12,6 +12,9 @@ dist/
 *.pem
 *.key
 *.xlsx
+*.inspect.ndjson
+!examples/logistics_operations_input.xlsx
+!generated_example/logistics_forecast.xlsx
 *.xls
 *.pdf
 private/

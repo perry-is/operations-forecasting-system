@@ -1,15 +1,23 @@
-flowchart TD
-    I[Synthetic inventory snapshot] --> V[Validation and normalization]
-    U[Synthetic usage history] --> V
-    P[Synthetic PO records] --> V
-    S[Scenario assumptions] --> F
-    V --> F[Transparent demand forecast]
-    F --> X[Dated inventory projection]
-    X --> L[Lead-time analysis and risk detection]
-    L --> R[Explainable recommendation]
-    R --> Q[Human review flags]
-    R --> C[Scenario comparison]
-    Q --> C
-    C --> O[Planning report and recommendation JSON]
-    O --> A[Audit JSONL]
-    A --> H[Human decision outside the prototype]
+flowchart LR
+    H[Human maintains source] --> X[Synthetic operational Excel]
+    X --> V[Read-only validation and normalization]
+    V --> T[Order, shipping, sales, and demand trends]
+    V --> I[Inventory snapshot and dated inbound POs]
+    T --> F[Transparent monthly forecasts]
+    I --> P[Lead-time projection, risk, and scenarios]
+    F --> P
+    T --> W[Generated forecast / analysis Excel]
+    P --> W
+    F --> FH[Append-only forecast history]
+    FH --> VA[Forecast vs actual]
+    VA --> W
+    W --> R[Review queue and audit trail]
+    R --> D[Human operational decision]
+    subgraph Future authorized intake only
+      S[Authorized source document] --> E[Controlled extraction]
+      E --> PR[Proposed facts + evidence + uncertainty]
+      PR --> HR[Human conversational verification]
+      HR --> AR[Approved canonical record]
+      AR --> L[Logistics / forecasting]
+      AR --> B[Bookkeeping]
+    end

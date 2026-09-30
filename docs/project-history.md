@@ -1,52 +1,68 @@
 # Project history and evolution
 
-## Original workflow — actually used
+This project has three distinct stages. The original work system was actually used. The repository is a synthetic public reconstruction. Document intake is a future design extension and did not exist in the original workflow.
 
-The author built an Excel-based logistics forecasting workflow for real operational work and consulted it on roughly ten occasions. It helped examine inventory demand, shipping/order trends, sales progression, recurring operational patterns, and rough forward-looking behavior. Its role was to provide evidence when questions arose or assumptions needed to be checked against available data.
+## A. Original system — actually used
+
+I built and used an Excel-based forecasting and analysis workflow in real logistics work. I consulted it on roughly ten occasions to help answer operational questions, examine trends, and check assumptions against available data.
+
+It helped examine:
+
+- inventory demand
+- order and shipping trends
+- sales progression
+- recurring operational patterns
+- rough forward-looking behavior and predictability
+- whether an assumption about demand or workload was supported by the data
 
 ```mermaid
 flowchart LR
     H[Human] --> O[Operational Excel]
-    O --> F[Forecast / analysis Excel]
+    O --> F[Forecast / Analysis Excel]
     F --> D[Human review and operational decision]
 ```
 
-This was a practical operational tool. There are no formal measured outcome metrics and no claim that it was enterprise software or a statistically validated forecasting model. Neither the original workbooks nor their data, organization-specific procedures, or environment are included here. No AI-assisted document intake is attributed to this original implementation.
+It served as a practical evidence layer. There are no formal measured outcome metrics. This history does not support claims of improved accuracy, lower costs, reduced workload, higher sales, fewer stockouts, or measured productivity gains. The original tool was not enterprise software or a statistically validated forecasting model. Its workbooks, source code, records, identities, and employer-specific processes are not included here.
 
-## Public rebuild — implemented and planned
+## B. Public clean-room rebuild — implemented
 
-The current clean-room implementation replaces operational records with synthetic CSV fixtures and uses Python for normalization, validation, forecasting, dated inventory projection, scenario analysis, and recommendation reports. It adds explicit review flags, inspectable audit records, automated tests, CI, and documented assumptions.
-
-The fuller public rebuild direction is shown below. Dashed nodes are planned and are not delivered by this version. The current report supplies review items but has no persistent review-queue state or decision-approval interface.
+The public implementation replaces operational information with a wholly synthetic workbook. The human-maintained workbook is the source of truth for the demo; Python reads it without writing to it.
 
 ```mermaid
 flowchart LR
-    E[Synthetic operational Excel: planned] -.-> V[Validation]
-    C[Synthetic CSV: implemented] --> V
-    V --> N[Normalization]
-    N --> P[Python analysis]
-    P --> R[JSON / Markdown outputs: implemented]
-    P -.-> W[Forecast workbook: planned]
-    W -.-> H[Automatic forecast history: planned]
-    H -.-> A[Forecast vs actual: planned]
-    A -.-> Q[Persistent review queue: planned]
-    R --> D[Human decision]
-    Q -.-> D
+    H[Human maintains source] --> I[Synthetic Operational Excel]
+    I --> V[Validation and normalization]
+    V --> A[Order, shipping, demand, and recurring-pattern analysis]
+    A --> P[Inventory projection, scenarios, and recommendations]
+    P --> F[Generated Forecast Excel]
+    P --> FH[Append-only forecast history]
+    FH --> FA[Forecast versus actual]
+    F --> Q[Review queue and audit trail]
+    FA --> Q
+    Q --> D[Human review and operational decision]
 ```
 
-Audit output preserves the inputs and forecast for the current run. Separate output directories can retain run snapshots, but the default demo overwrites its three artifacts. Do not describe this as automated forecast-history storage or forecast-versus-actual tracking.
+The input workbook contains `README`, `Orders`, `Shipments`, `Inventory`, and `Operational_Updates`. The generated workbook contains the implemented analysis sheets documented in the root README. Forecast snapshots are additionally preserved in a JSONL history file, keyed by planning date, item, and target month. When later actuals arrive, the system compares them with the first saved forecast. An existing snapshot is not silently recomputed or overwritten. A changed candidate for the same forecast ID is reported as a conflict while the stored forecast remains intact.
 
-## Future authorized intake — architecture only
+The rebuild adds Python validation, normalization, reproducible weekly/monthly and customer/category analyses, inventory-demand progression, transparent forecasts, lead-time projection, scenarios, review flags, output workbooks, forecast history, forecast-versus-actual measures, automated tests, CI, and an inspectable audit trail. These are public implementation improvements; they should not be attributed to the original Excel files unless listed above as confirmed original capabilities.
+
+The synthetic demonstration is not a reconstruction of actual item records, customers, vendors, quantities, costs, or internal procedures. No measured business outcomes are represented.
+
+## C. Future design extension — authorized intake and shared approved facts
 
 ```mermaid
 flowchart LR
-    S[Authorized document or system] --> E[Controlled extraction]
-    E --> P[Proposed structured facts]
-    P --> U[Evidence and uncertainty]
-    U --> V[Conversational human verification]
-    V --> A[Approved canonical record]
-    A --> L[Logistics and forecasting workflows]
-    A --> B[Bookkeeping workflows]
+    S[Authorized invoice, receipt, order, or shipping document] --> E[Controlled extraction]
+    E --> P[ProposedOperationalRecord]
+    P --> X[Evidence and uncertainty]
+    X --> H[Conversational human verification]
+    H -->|approve or correct| A[ApprovedOperationalRecord]
+    H -->|reject| R[Rejected proposal]
+    A --> C[Canonical approved facts]
+    C --> L[Logistics and forecasting workflows]
+    C --> B[Bookkeeping workflows]
 ```
 
-This proposed extension would keep extracted proposals separate from approved facts. A reviewer would see source evidence and uncertainty before a value entered an approved canonical record. Sharing approved records across workflows would require explicit authorization and appropriate access boundaries. This layer is not implemented, did not exist in the original workplace tool, and introduces no live AI calls into the demo.
+This is a concrete later architecture, not a feature of the original workplace system and not part of the current Excel demo. A future authorized invoice, receipt, order, or shipping document would pass through controlled extraction into proposed facts that retain evidence and uncertainty. A human would approve, correct, or reject each proposal. Only an `ApprovedOperationalRecord` could enter a canonical approved-fact layer; a `ProposedOperationalRecord` is deliberately a different type and is rejected at that boundary. Approved facts could then support logistics and/or bookkeeping workflows under an explicit authorization and access policy.
+
+No LLM, OCR, document upload, canonical database, conversational review UI, or cross-workflow sharing is implemented. The two deterministic record types and admission tests demonstrate only the proposal/approval boundary.

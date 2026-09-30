@@ -22,7 +22,7 @@
         "minimum_stock": "10",
         "target_stock": "80",
         "supplier_lead_time_days": 14,
-        "unit_cost": "2.50",
+        "unit_cost": "2.5",
         "criticality": "normal",
         "last_updated": "2026-06-30"
       },
@@ -40,7 +40,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "91",
+        "observed_usage": "91.0",
         "baseline_daily_usage": "1.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -119,7 +119,7 @@
         "minimum_stock": "15",
         "target_stock": "110",
         "supplier_lead_time_days": 35,
-        "unit_cost": "3.00",
+        "unit_cost": "3",
         "criticality": "normal",
         "last_updated": "2026-06-30"
       },
@@ -137,7 +137,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "182",
+        "observed_usage": "182.0",
         "baseline_daily_usage": "2.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -206,7 +206,7 @@
         "minimum_stock": "20",
         "target_stock": "180",
         "supplier_lead_time_days": 40,
-        "unit_cost": "7.50",
+        "unit_cost": "7.5",
         "criticality": "high",
         "last_updated": "2026-06-30"
       },
@@ -224,7 +224,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "273",
+        "observed_usage": "273.0",
         "baseline_daily_usage": "3.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -311,7 +311,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "91",
+        "observed_usage": "91.0",
         "baseline_daily_usage": "1.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -399,7 +399,7 @@
         "minimum_stock": "5",
         "target_stock": "50",
         "supplier_lead_time_days": 21,
-        "unit_cost": "4.00",
+        "unit_cost": "4",
         "criticality": "high",
         "last_updated": "2026-06-30"
       },
@@ -417,7 +417,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "91",
+        "observed_usage": "91.0",
         "baseline_daily_usage": "1.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -498,7 +498,7 @@
         "minimum_stock": "2",
         "target_stock": "30",
         "supplier_lead_time_days": 14,
-        "unit_cost": "0.80",
+        "unit_cost": "0.8",
         "criticality": "low",
         "last_updated": "2026-06-30"
       },
@@ -591,7 +591,7 @@
         "minimum_stock": "10",
         "target_stock": "100",
         "supplier_lead_time_days": 21,
-        "unit_cost": "1.50",
+        "unit_cost": "1.5",
         "criticality": "normal",
         "last_updated": "2026-06-30"
       },
@@ -609,7 +609,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "241",
+        "observed_usage": "241.0",
         "baseline_daily_usage": "2.648352",
         "data_quality": "low",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -684,7 +684,7 @@
         "minimum_stock": "10",
         "target_stock": "60",
         "supplier_lead_time_days": 14,
-        "unit_cost": "6.00",
+        "unit_cost": "6",
         "criticality": "low",
         "last_updated": "2026-06-30"
       },
@@ -702,7 +702,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "106",
+        "observed_usage": "106.0",
         "baseline_daily_usage": "1.164835",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -781,7 +781,7 @@
         "minimum_stock": "5",
         "target_stock": "50",
         "supplier_lead_time_days": 14,
-        "unit_cost": "2.00",
+        "unit_cost": "2",
         "criticality": "normal",
         "last_updated": "2026-06-30"
       },
@@ -872,7 +872,7 @@
         "minimum_stock": "10",
         "target_stock": "80",
         "supplier_lead_time_days": 14,
-        "unit_cost": "9.00",
+        "unit_cost": "9",
         "criticality": "critical",
         "last_updated": "2026-06-30"
       },
@@ -977,7 +977,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "91",
+        "observed_usage": "91.0",
         "baseline_daily_usage": "1.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -1046,7 +1046,7 @@
         "minimum_stock": "10",
         "target_stock": "70",
         "supplier_lead_time_days": 35,
-        "unit_cost": "3.50",
+        "unit_cost": "3.5",
         "criticality": "normal",
         "last_updated": "2026-06-30"
       },
@@ -1064,7 +1064,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "91",
+        "observed_usage": "91.0",
         "baseline_daily_usage": "1.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -1133,7 +1133,7 @@
         "minimum_stock": "0",
         "target_stock": "30",
         "supplier_lead_time_days": 14,
-        "unit_cost": "12.00",
+        "unit_cost": "12",
         "criticality": "low",
         "last_updated": "2026-06-30"
       },
@@ -1248,7 +1248,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "45.5",
+        "observed_usage": "45.50",
         "baseline_daily_usage": "0.500000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -1326,7 +1326,7 @@
         "minimum_stock": "10",
         "target_stock": "80",
         "supplier_lead_time_days": 14,
-        "unit_cost": "2.50",
+        "unit_cost": "2.5",
         "criticality": "normal",
         "last_updated": "2026-06-30"
       },
@@ -1344,7 +1344,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "91",
+        "observed_usage": "91.0",
         "baseline_daily_usage": "1.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -1423,7 +1423,7 @@
         "minimum_stock": "15",
         "target_stock": "110",
         "supplier_lead_time_days": 35,
-        "unit_cost": "3.00",
+        "unit_cost": "3",
         "criticality": "normal",
         "last_updated": "2026-06-30"
       },
@@ -1441,7 +1441,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "182",
+        "observed_usage": "182.0",
         "baseline_daily_usage": "2.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -1510,7 +1510,7 @@
         "minimum_stock": "20",
         "target_stock": "180",
         "supplier_lead_time_days": 40,
-        "unit_cost": "7.50",
+        "unit_cost": "7.5",
         "criticality": "high",
         "last_updated": "2026-06-30"
       },
@@ -1528,7 +1528,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "273",
+        "observed_usage": "273.0",
         "baseline_daily_usage": "3.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -1615,7 +1615,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "91",
+        "observed_usage": "91.0",
         "baseline_daily_usage": "1.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -1703,7 +1703,7 @@
         "minimum_stock": "5",
         "target_stock": "50",
         "supplier_lead_time_days": 21,
-        "unit_cost": "4.00",
+        "unit_cost": "4",
         "criticality": "high",
         "last_updated": "2026-06-30"
       },
@@ -1721,7 +1721,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "91",
+        "observed_usage": "91.0",
         "baseline_daily_usage": "1.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -1802,7 +1802,7 @@
         "minimum_stock": "2",
         "target_stock": "30",
         "supplier_lead_time_days": 14,
-        "unit_cost": "0.80",
+        "unit_cost": "0.8",
         "criticality": "low",
         "last_updated": "2026-06-30"
       },
@@ -1895,7 +1895,7 @@
         "minimum_stock": "10",
         "target_stock": "100",
         "supplier_lead_time_days": 21,
-        "unit_cost": "1.50",
+        "unit_cost": "1.5",
         "criticality": "normal",
         "last_updated": "2026-06-30"
       },
@@ -1913,7 +1913,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "241",
+        "observed_usage": "241.0",
         "baseline_daily_usage": "2.648352",
         "data_quality": "low",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -1988,7 +1988,7 @@
         "minimum_stock": "10",
         "target_stock": "60",
         "supplier_lead_time_days": 14,
-        "unit_cost": "6.00",
+        "unit_cost": "6",
         "criticality": "low",
         "last_updated": "2026-06-30"
       },
@@ -2006,7 +2006,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "106",
+        "observed_usage": "106.0",
         "baseline_daily_usage": "1.164835",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -2085,7 +2085,7 @@
         "minimum_stock": "5",
         "target_stock": "50",
         "supplier_lead_time_days": 14,
-        "unit_cost": "2.00",
+        "unit_cost": "2",
         "criticality": "normal",
         "last_updated": "2026-06-30"
       },
@@ -2176,7 +2176,7 @@
         "minimum_stock": "10",
         "target_stock": "80",
         "supplier_lead_time_days": 14,
-        "unit_cost": "9.00",
+        "unit_cost": "9",
         "criticality": "critical",
         "last_updated": "2026-06-30"
       },
@@ -2281,7 +2281,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "91",
+        "observed_usage": "91.0",
         "baseline_daily_usage": "1.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -2350,7 +2350,7 @@
         "minimum_stock": "10",
         "target_stock": "70",
         "supplier_lead_time_days": 35,
-        "unit_cost": "3.50",
+        "unit_cost": "3.5",
         "criticality": "normal",
         "last_updated": "2026-06-30"
       },
@@ -2368,7 +2368,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "91",
+        "observed_usage": "91.0",
         "baseline_daily_usage": "1.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -2437,7 +2437,7 @@
         "minimum_stock": "0",
         "target_stock": "30",
         "supplier_lead_time_days": 14,
-        "unit_cost": "12.00",
+        "unit_cost": "12",
         "criticality": "low",
         "last_updated": "2026-06-30"
       },
@@ -2552,7 +2552,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "45.5",
+        "observed_usage": "45.50",
         "baseline_daily_usage": "0.500000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -2630,7 +2630,7 @@
         "minimum_stock": "10",
         "target_stock": "80",
         "supplier_lead_time_days": 14,
-        "unit_cost": "2.50",
+        "unit_cost": "2.5",
         "criticality": "normal",
         "last_updated": "2026-06-30"
       },
@@ -2648,7 +2648,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "91",
+        "observed_usage": "91.0",
         "baseline_daily_usage": "1.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -2727,7 +2727,7 @@
         "minimum_stock": "15",
         "target_stock": "110",
         "supplier_lead_time_days": 35,
-        "unit_cost": "3.00",
+        "unit_cost": "3",
         "criticality": "normal",
         "last_updated": "2026-06-30"
       },
@@ -2745,7 +2745,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "182",
+        "observed_usage": "182.0",
         "baseline_daily_usage": "2.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -2814,7 +2814,7 @@
         "minimum_stock": "20",
         "target_stock": "180",
         "supplier_lead_time_days": 40,
-        "unit_cost": "7.50",
+        "unit_cost": "7.5",
         "criticality": "high",
         "last_updated": "2026-06-30"
       },
@@ -2832,7 +2832,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "273",
+        "observed_usage": "273.0",
         "baseline_daily_usage": "3.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -2919,7 +2919,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "91",
+        "observed_usage": "91.0",
         "baseline_daily_usage": "1.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -3007,7 +3007,7 @@
         "minimum_stock": "5",
         "target_stock": "50",
         "supplier_lead_time_days": 21,
-        "unit_cost": "4.00",
+        "unit_cost": "4",
         "criticality": "high",
         "last_updated": "2026-06-30"
       },
@@ -3025,7 +3025,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "91",
+        "observed_usage": "91.0",
         "baseline_daily_usage": "1.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -3106,7 +3106,7 @@
         "minimum_stock": "2",
         "target_stock": "30",
         "supplier_lead_time_days": 14,
-        "unit_cost": "0.80",
+        "unit_cost": "0.8",
         "criticality": "low",
         "last_updated": "2026-06-30"
       },
@@ -3199,7 +3199,7 @@
         "minimum_stock": "10",
         "target_stock": "100",
         "supplier_lead_time_days": 21,
-        "unit_cost": "1.50",
+        "unit_cost": "1.5",
         "criticality": "normal",
         "last_updated": "2026-06-30"
       },
@@ -3217,7 +3217,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "241",
+        "observed_usage": "241.0",
         "baseline_daily_usage": "2.648352",
         "data_quality": "low",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -3292,7 +3292,7 @@
         "minimum_stock": "10",
         "target_stock": "60",
         "supplier_lead_time_days": 14,
-        "unit_cost": "6.00",
+        "unit_cost": "6",
         "criticality": "low",
         "last_updated": "2026-06-30"
       },
@@ -3310,7 +3310,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "106",
+        "observed_usage": "106.0",
         "baseline_daily_usage": "1.164835",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -3389,7 +3389,7 @@
         "minimum_stock": "5",
         "target_stock": "50",
         "supplier_lead_time_days": 14,
-        "unit_cost": "2.00",
+        "unit_cost": "2",
         "criticality": "normal",
         "last_updated": "2026-06-30"
       },
@@ -3480,7 +3480,7 @@
         "minimum_stock": "10",
         "target_stock": "80",
         "supplier_lead_time_days": 14,
-        "unit_cost": "9.00",
+        "unit_cost": "9",
         "criticality": "critical",
         "last_updated": "2026-06-30"
       },
@@ -3585,7 +3585,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "91",
+        "observed_usage": "91.0",
         "baseline_daily_usage": "1.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -3654,7 +3654,7 @@
         "minimum_stock": "10",
         "target_stock": "70",
         "supplier_lead_time_days": 35,
-        "unit_cost": "3.50",
+        "unit_cost": "3.5",
         "criticality": "normal",
         "last_updated": "2026-06-30"
       },
@@ -3672,7 +3672,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "91",
+        "observed_usage": "91.0",
         "baseline_daily_usage": "1.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -3741,7 +3741,7 @@
         "minimum_stock": "0",
         "target_stock": "30",
         "supplier_lead_time_days": 14,
-        "unit_cost": "12.00",
+        "unit_cost": "12",
         "criticality": "low",
         "last_updated": "2026-06-30"
       },
@@ -3856,7 +3856,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "45.5",
+        "observed_usage": "45.50",
         "baseline_daily_usage": "0.500000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -3934,7 +3934,7 @@
         "minimum_stock": "10",
         "target_stock": "80",
         "supplier_lead_time_days": 14,
-        "unit_cost": "2.50",
+        "unit_cost": "2.5",
         "criticality": "normal",
         "last_updated": "2026-06-30"
       },
@@ -3952,7 +3952,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "91",
+        "observed_usage": "91.0",
         "baseline_daily_usage": "1.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -4031,7 +4031,7 @@
         "minimum_stock": "15",
         "target_stock": "110",
         "supplier_lead_time_days": 35,
-        "unit_cost": "3.00",
+        "unit_cost": "3",
         "criticality": "normal",
         "last_updated": "2026-06-30"
       },
@@ -4049,7 +4049,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "182",
+        "observed_usage": "182.0",
         "baseline_daily_usage": "2.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -4118,7 +4118,7 @@
         "minimum_stock": "20",
         "target_stock": "180",
         "supplier_lead_time_days": 40,
-        "unit_cost": "7.50",
+        "unit_cost": "7.5",
         "criticality": "high",
         "last_updated": "2026-06-30"
       },
@@ -4136,7 +4136,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "273",
+        "observed_usage": "273.0",
         "baseline_daily_usage": "3.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -4223,7 +4223,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "91",
+        "observed_usage": "91.0",
         "baseline_daily_usage": "1.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -4311,7 +4311,7 @@
         "minimum_stock": "5",
         "target_stock": "50",
         "supplier_lead_time_days": 21,
-        "unit_cost": "4.00",
+        "unit_cost": "4",
         "criticality": "high",
         "last_updated": "2026-06-30"
       },
@@ -4329,7 +4329,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "91",
+        "observed_usage": "91.0",
         "baseline_daily_usage": "1.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -4410,7 +4410,7 @@
         "minimum_stock": "2",
         "target_stock": "30",
         "supplier_lead_time_days": 14,
-        "unit_cost": "0.80",
+        "unit_cost": "0.8",
         "criticality": "low",
         "last_updated": "2026-06-30"
       },
@@ -4503,7 +4503,7 @@
         "minimum_stock": "10",
         "target_stock": "100",
         "supplier_lead_time_days": 21,
-        "unit_cost": "1.50",
+        "unit_cost": "1.5",
         "criticality": "normal",
         "last_updated": "2026-06-30"
       },
@@ -4521,7 +4521,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "241",
+        "observed_usage": "241.0",
         "baseline_daily_usage": "2.648352",
         "data_quality": "low",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -4596,7 +4596,7 @@
         "minimum_stock": "10",
         "target_stock": "60",
         "supplier_lead_time_days": 14,
-        "unit_cost": "6.00",
+        "unit_cost": "6",
         "criticality": "low",
         "last_updated": "2026-06-30"
       },
@@ -4614,7 +4614,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "106",
+        "observed_usage": "106.0",
         "baseline_daily_usage": "1.164835",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -4693,7 +4693,7 @@
         "minimum_stock": "5",
         "target_stock": "50",
         "supplier_lead_time_days": 14,
-        "unit_cost": "2.00",
+        "unit_cost": "2",
         "criticality": "normal",
         "last_updated": "2026-06-30"
       },
@@ -4784,7 +4784,7 @@
         "minimum_stock": "10",
         "target_stock": "80",
         "supplier_lead_time_days": 14,
-        "unit_cost": "9.00",
+        "unit_cost": "9",
         "criticality": "critical",
         "last_updated": "2026-06-30"
       },
@@ -4889,7 +4889,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "91",
+        "observed_usage": "91.0",
         "baseline_daily_usage": "1.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -4958,7 +4958,7 @@
         "minimum_stock": "10",
         "target_stock": "70",
         "supplier_lead_time_days": 35,
-        "unit_cost": "3.50",
+        "unit_cost": "3.5",
         "criticality": "normal",
         "last_updated": "2026-06-30"
       },
@@ -4976,7 +4976,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "91",
+        "observed_usage": "91.0",
         "baseline_daily_usage": "1.000000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",
@@ -5045,7 +5045,7 @@
         "minimum_stock": "0",
         "target_stock": "30",
         "supplier_lead_time_days": 14,
-        "unit_cost": "12.00",
+        "unit_cost": "12",
         "criticality": "low",
         "last_updated": "2026-06-30"
       },
@@ -5160,7 +5160,7 @@
           "2026-06-01"
         ],
         "observed_days": 91,
-        "observed_usage": "45.5",
+        "observed_usage": "45.50",
         "baseline_daily_usage": "0.500000",
         "data_quality": "adequate_history",
         "quality_meaning": "Input coverage and heuristic checks; not a probability of forecast accuracy",

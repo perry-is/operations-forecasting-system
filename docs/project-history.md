@@ -24,7 +24,7 @@ flowchart LR
 
 It served as a practical evidence layer. There are no formal measured outcome metrics. This history does not support claims of improved accuracy, lower costs, reduced workload, higher sales, fewer stockouts, or measured productivity gains. The original tool was not enterprise software or a statistically validated forecasting model. Its workbooks, source code, records, identities, and employer-specific processes are not included here.
 
-## B. Public clean-room rebuild — implemented
+## B. Public rebuild — implemented
 
 The public implementation replaces operational information with a wholly synthetic workbook. The human-maintained workbook is the source of truth for the demo; Python reads it without writing to it.
 

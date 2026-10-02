@@ -24,7 +24,13 @@ flowchart LR
 
 ## What it produces
 
-A [14-sheet planning workbook](generated_example/logistics_forecast.xlsx) (dashboard, trends, forecasts, scenarios, recommendations, review queue, audit), plus a [plain-language report](generated_example/planning_report.md):
+A [14-sheet planning workbook](generated_example/logistics_forecast.xlsx) (dashboard, trends, forecasts, scenarios, recommendations, review queue, audit), plus a [plain-language report](generated_example/planning_report.md).
+
+The workbook's Dashboard sheet, generated from the fictional demo data:
+
+![Dashboard sheet of the generated planning workbook, showing synthetic summary counts](docs/images/dashboard.png)
+
+From the report:
 
 | Item | Available | At lead time | Projected stockout | Action | Qty | Why it needs a person |
 |---|---:|---:|---|---|---:|---|

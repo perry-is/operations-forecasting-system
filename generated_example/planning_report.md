@@ -32,13 +32,13 @@ Shortages are measured before any proposed new purchase. Expedite candidates inc
 | PART-001 | 2 | 110 | 96 | none in horizon | NO ACTION | 0 | none |
 | PART-002 | 2 | 90 | 20 | 2026-08-15 | ORDER | 90 | none |
 | PART-004 | 2 | 25 | 55 | 2026-09-24 | MONITOR | 0 | none |
-| PART-007 | 2 | 60 | 4.384608 | 2026-07-23 | HUMAN REVIEW | withheld | DEMAND_ANOMALY, UNCERTAIN_FORECAST |
+| PART-007 | 2 | 60 | 4.4 | 2026-07-23 | HUMAN REVIEW | withheld | DEMAND_ANOMALY, UNCERTAIN_FORECAST |
 | PART-009 | 2 | 20 | 6 | 2026-07-21 | HUMAN REVIEW | withheld | INSUFFICIENT_HISTORY, UNCERTAIN_FORECAST |
 | PART-011 | 2 | 52 | 22 | 2026-08-22 | MONITOR | 0 | none |
 | PART-012 | 2 | 60 | 25 | 2026-08-30 | MONITOR | 0 | none |
 | KIT-001 | 1 | 90 | 120 | none in horizon | REDUCE / REVIEW EXCESS | 0 | none |
-| PART-006 | 1 | 15 | 12.230772 | 2026-09-14 | HUMAN REVIEW | withheld | INTERMITTENT_DEMAND, UNCERTAIN_FORECAST |
-| PART-008 | 1 | 500 | 483.69231 | none in horizon | REDUCE / REVIEW EXCESS | 0 | none |
+| PART-006 | 1 | 15 | 12.2 | 2026-09-14 | HUMAN REVIEW | withheld | INTERMITTENT_DEMAND, UNCERTAIN_FORECAST |
+| PART-008 | 1 | 500 | 483.7 | none in horizon | REDUCE / REVIEW EXCESS | 0 | none |
 
 ## Scenario comparisons
 

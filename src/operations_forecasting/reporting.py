@@ -33,7 +33,10 @@ def summary(records: list[dict]) -> dict:
 
 
 def display_quantity(value: Decimal | None) -> str:
-    return format(value.normalize(), "f") if value is not None else "unknown"
+    """Round to one decimal place for display only; stored values keep full precision."""
+    if value is None:
+        return "unknown"
+    return format(value.quantize(Decimal("0.1")).normalize(), "f")
 
 
 def render_report(result: dict) -> str:

@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "operations-forecasting-system"
 version = "0.1.0"
-description = "Clean-room logistics forecasting and operational analysis with auditable inventory recommendations"
+description = "Inventory forecasting and reorder recommendations from an Excel workflow, with human review and preserved forecast history"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = ["openpyxl>=3.1.5"]

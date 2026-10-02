@@ -1,120 +1,88 @@
 # Operations Forecasting System
 
-A clean-room reconstruction and extension of an Excel-based logistics forecasting and analysis workflow I built and used in operational work.
+**Spreadsheet in, planning workbook out: inventory forecasts and reorder recommendations that a person reviews before anything is ordered.**
 
-The original workflow was consulted roughly ten times to examine inventory demand, order and shipping trends, sales progression, recurring patterns, and rough forward-looking behavior. I used it as evidence when operational questions arose or an assumption needed to be checked against available data. There are no formal outcome metrics, so this project makes no claims about forecast accuracy, cost savings, reduced inventory, prevented stockouts, or productivity gains.
+`Status: rebuilt from an Excel tool I built and used in my logistics job · synthetic data · Python + Excel · 47 tests`
 
-## How the system evolved
+---
 
-### Original workflow — actually used
+## Where this came from
 
-```text
-Human → Operational Excel → Forecast / Analysis Excel → Human operational decision
+In my logistics role, questions like *"Are we going to run out of this part?"* or *"Is demand actually up, or does it just feel busy?"* usually got answered by gut feel. So I built an Excel workbook that pulled order, shipping, and inventory history together and showed the trends.
+
+I used it about ten times, whenever a decision needed evidence or an assumption needed checking. I don't have formal accuracy or savings numbers, and I don't claim any. What it gave me was simple: **data to point to instead of a hunch.**
+
+This repository rebuilds that tool properly, with fictional data. The people doing the work keep using Excel; Python sits in between, doing the analysis that's tedious and error-prone by hand.
+
+```mermaid
+flowchart LR
+    H[Planner updates<br/>input workbook] --> P[Python: validate,<br/>analyze, forecast]
+    P --> W[Generated planning<br/>workbook]
+    P --> FH[(Saved forecast<br/>history)]
+    W --> R[Planner reviews<br/>and decides]
 ```
 
-The Excel workflow was a practical evidence layer that supported human analysis. It was not enterprise forecasting software or a statistically validated forecasting model.
+## What it produces
 
-### Public clean-room rebuild — implemented here
+A [14-sheet planning workbook](generated_example/logistics_forecast.xlsx) (dashboard, trends, forecasts, scenarios, recommendations, review queue, audit), plus a [plain-language report](generated_example/planning_report.md).
+
+The workbook's Dashboard sheet, generated from the fictional demo data:
+
+![Dashboard sheet of the generated planning workbook, showing synthetic summary counts](docs/images/dashboard.png)
+
+From the report:
+
+| Item | Available | At lead time | Projected stockout | Action | Qty | Why it needs a person |
+|---|---:|---:|---|---|---:|---|
+| PART-010 | 25 | -3 | 2026-07-13 | EXPEDITE | 83 | — |
+| PART-002 | 90 | 20 | 2026-08-15 | ORDER | 90 | — |
+| PART-005 | 10 | -11 | 2026-07-11 | HUMAN REVIEW | withheld | Purchase order is overdue |
+| PART-009 | 20 | 6 | 2026-07-21 | HUMAN REVIEW | withheld | Not enough history to forecast |
+| KIT-002 | -4 | unknown | 2026-06-30 | HUMAN REVIEW | withheld | Stale count, unknown lead time, inconsistent quantities |
+| PART-008 | 500 | 483.7 | none | REVIEW EXCESS | 0 | — |
+
+It also runs "what if" scenarios on the same data: demand up 20%, lead times two weeks longer, an inbound PO delayed.
+
+## The decisions that matter
+
+**It never touches the source spreadsheet.** The input workbook is opened read-only. The person who maintains it is the source of truth, and the system can't quietly change their data.
+
+**When the data is bad, it withholds the number.** With an overdue PO, a stale count, or too little history, the system doesn't produce a confident-looking order quantity. It says "withheld" and explains why. A wrong number with a decimal point looks more trustworthy than it deserves.
+
+**Old forecasts can't be rewritten.** Every forecast is saved with a permanent ID. When the actual demand comes in, it's compared against what was *really* predicted at the time, not a recalculated version. If new data would change an old forecast, that's flagged as a conflict instead of silently fixed. This is how you find out whether a forecast method is any good.
+
+**A confirmed inbound PO counts; a hopeful one doesn't.** Dated, confirmed purchase orders reduce the reorder need. Overdue or undated ones are flagged and left out, so a late shipment doesn't hide a real shortage.
+
+**Recommendations are proposals.** It doesn't place orders or connect to an ERP. A planner decides.
+
+The forecast itself is intentionally simple: a moving average over up to three complete months, with flags for spikes, gaps, and irregular demand. I chose a method a planner can check by hand over one they'd have to take on faith. Details: [forecasting method](docs/forecasting-method.md) · [decision boundaries](docs/decision-boundaries.md).
+
+## Where AI would fit next (not built yet)
+
+The slowest part of the original process was typing information from invoices, POs, and shipping documents into the spreadsheet. The next step I'm designing:
 
 ```text
-Human → Synthetic operational Excel → Python validation, analysis, and forecasting
-      → Generated forecast Excel → Human review and operational decision
+document -> AI extracts PROPOSED facts (with evidence + uncertainty)
+         -> person approves, corrects, or rejects
+         -> only approved facts enter the record
 ```
 
-The public demo reads [the synthetic input workbook](examples/logistics_operations_input.xlsx) in read-only mode and creates [the generated analysis workbook](generated_example/logistics_forecast.xlsx). Python sits between them. Rerunning the demo never writes into or replaces the human-maintained input workbook.
+AI output is a proposal, not a fact, until a person approves it. This repo includes only the type boundary that enforces that rule (a proposed record is rejected at the door, and tests prove it). Extraction isn't built yet, and I'd rather use it for real before publishing it. See [project history](docs/project-history.md).
 
-The rebuild adds reproducible validation and normalization, weekly and monthly analysis, customer/category patterns, inventory-demand analysis, explainable projections, scenarios, review states, an append-only forecast history, forecast-versus-actual comparisons, tests, CI, and an audit trail. Every example is fictional.
+## Run it
 
-### Future design extension — not part of the original workflow or runnable demo
+Python 3.11+ and `openpyxl`.
 
-```text
-Authorized invoice / receipt / order / shipping document
-  → controlled extraction
-  → proposed facts with evidence and uncertainty
-  → conversational human review: approve, correct, or reject
-  → approved canonical record
-  → logistics and/or bookkeeping workflows
-```
-
-The repository includes deterministic proposal/approval interface types to make this boundary testable. It does not implement document extraction, AI, OCR, or a canonical operational database. A proposed intake record cannot pass the canonical admission function until a human decision creates an approved or corrected record.
-
-See [project history](docs/project-history.md) for a fuller account of what was used, what is rebuilt, and what remains a design extension.
-
-## What the public system analyzes
-
-The input workbook has five source sheets:
-
-- `README` supplies the planning snapshot and actuals cutoff.
-- `Orders` contains fictional order dates, customers, categories, item IDs, quantities, values, and status.
-- `Shipments` contains order-linked shipped quantities and dates.
-- `Inventory` contains the snapshot, allocations, minimum and target levels, lead times, criticality, and synthetic unit costs.
-- `Operational_Updates` contains dated inbound purchase orders.
-
-The generated workbook produces weekly order/shipping progression, monthly progression, customer/category patterns, inventory demand by month, three monthly forecast periods, preserved forecast snapshots, forecast-versus-actual scores, inventory scenarios, recommendations, a review queue, and an audit view. See [the workbook map](docs/architecture.md).
-
-## Forecasting and decision boundaries
-
-The baseline forecast uses a transparent calendar-day moving average over up to three complete months before the planning date. Missing history is not silently filled with zero. Sparse history, demand spikes, and intermittent patterns receive review flags. The forecast is deterministic and is not an accuracy probability.
-
-Inventory logic keeps distinct values for on-hand stock, available stock after allocations, eligible dated inbound supply, projected stock at lead time, and projected stock over the planning horizon. A confirmed inbound PO can prevent a false reorder. An overdue or undated PO is flagged and withheld from projected availability. Lead-time demand may create an expedite recommendation even when current inventory looks healthy.
-
-Recommendations remain proposals. They include the relevant facts, forecast, inbound evaluations, projected inventory, reason, and review flags. Scenarios vary demand, lead time, or inbound timing without changing source records. The system does not place orders or connect to an ERP.
-
-## Forecast history and forecast versus actual
-
-For each item and target month, the demo assigns a stable forecast ID based on the planning date. It saves the first generated forecast in `generated_example/forecast_history.jsonl`; later runs with the same ID retain that saved forecast. If changed source data would produce a different value for an existing ID, the system keeps the original snapshot, shows the retained value in `Forecast`, and adds a conflict to `Review_Queue`. A new planning date creates new snapshots.
-
-When a full target month is available by the input workbook's actuals cutoff, the comparison includes forecast, actual, absolute error, percentage error when the actual is nonzero, and direction. “Over” means forecast exceeded actual; “under” means forecast was below actual. Percentage error is `absolute error ÷ |actual|` and is blank when actual demand is zero. The workbook includes both history and comparison sheets so prior forecasts remain distinguishable from later actuals.
-
-## Synthetic demo result
-
-With the checked-in synthetic workbook, the demo reads 14 inventory items, 242 fictional order rows, and 242 linked shipment rows. It writes a 14-sheet forecast workbook, maintains 42 monthly forecast snapshots, and scores 42 completed forecast periods against synthetic actuals through September 2026. These figures describe the constructed demo only, not outcomes from the original workflow.
-
-## Run locally
-
-Python 3.11+ is required. The demo uses `openpyxl` to read and write `.xlsx` files. It makes no model/API calls and needs no network once package dependencies are installed.
-
-```sh
+```bash
 python -m pip install -e .
-python -m operations_forecasting.demo
+operations-forecast-demo
 python -m unittest discover -s tests -v
 ```
 
-The console entry point `operations-forecast-demo` runs the same workflow. Optional arguments select the input workbook, output directory, history file, forecast horizon, safety factor, and number of forecast months:
+## Limits
 
-```sh
-operations-forecast-demo --input-workbook examples/logistics_operations_input.xlsx --output-dir generated_example --forecast-periods 3
-```
+All items, customers, prices, and quantities are fictional. The forecast is a practical baseline, not a statistically validated model. It doesn't model seasonality, returns, promotions, or supplier capacity, and the forecast history is a local file, not a multi-user database.
 
-The demo overwrites generated reports and the generated analysis workbook. Forecast history is preserved by stable forecast ID. The source workbook is opened read-only and left intact.
+---
 
-## Generated workbook sheets
-
-`Dashboard`, `README`, `Clean_Data`, `Weekly_Analysis`, `Monthly_Analysis`, `Customer_Category_Analysis`, `Inventory_Demand`, `Forecast`, `Forecast_History`, `Forecast_vs_Actual`, `Scenario_Analysis`, `Recommendations`, `Review_Queue`, and `Audit`.
-
-Other generated files include `recommendations.json`, `planning_report.md`, and `audit.jsonl`. The input workbook is source data; generated files are analysis outputs.
-
-## Limitations
-
-- Every workbook row, identifier, date, price, and quantity is synthetic.
-- The forecast is a simple operational baseline, not a statistically validated model.
-- The order history is simplified and does not model cancellations beyond excluding them, returns, partial allocations, seasonality, promotions, capacity, or supplier constraints.
-- Forecast history is a local JSONL file. It is not tamper-proof and has no multi-user locking or database migration support.
-- The generated workbook is a report artifact, not an editable operational system of record.
-- Human decisions are not captured as approvals in this prototype.
-- Future authorized document intake is represented only by type boundaries. No real source documents, extraction, AI provider, OCR, or cross-workflow fact store is included.
-- This is a portfolio prototype, not production planning software. A human planner must verify source data and decisions.
-
-## Repository layout
-
-```text
-examples/logistics_operations_input.xlsx   synthetic human-maintained source
-generated_example/logistics_forecast.xlsx  generated analysis workbook
-generated_example/forecast_history.jsonl   preserved monthly forecast snapshots
-src/operations_forecasting/                ingestion, analysis, forecast, and outputs
-tests/                                     unittest coverage
-docs/                                      architecture, history, and decision limits
-diagrams/                                  system flow
-```
-
-The examples and generated reports are fictional and do not contain employer, customer, supplier, or proprietary operational data.
+Built by [Michael Perry](https://perry.is). I designed the workflow from my own logistics work and specified the behavior and tests, then directed AI coding agents to implement it and reviewed the result. [More of my work →](https://github.com/perry-is)
